@@ -1,0 +1,62 @@
+/* CSS Document */
+$color-main1:#F66249;
+$color-main2:#f43818;
+$color-main3:#282828;
+
+#box-navbar-l2{
+	height: 80px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+@media (max-width: 768px){
+	#box-navbar-l2{
+		height: 125px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+}
+#box-navbar-l2{
+	.img_logo{
+		height: 55px;
+	}
+	.input-group{
+		width: 100%;
+	}
+	.form-inline{
+		.form-control{
+			height: 45px;
+		}
+		button{
+			background-color: #282828;
+			color: #FFF;
+			padding: 2px 15px;
+			i{
+				font-size: 24px;
+			}
+		}
+	}
+	.cart{
+		font-size: 15px;
+		font-weight: 800;
+		.cart-icon{
+			max-height: 55px;
+			margin-right: 10px;
+		}
+		.badge{
+			position: relative;
+			color: #fff;
+			top: 5px;
+			right: -50px;
+			border-radius: 100%;
+			width: 22px;
+			height: 22px;
+			line-height: 1.3em;
+			font-size: 12px;
+			font-weight: bold;
+			text-align: center;
+		}
+	}
+	.cart:hover{
+		cursor: pointer;
+	}
+}

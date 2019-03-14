@@ -1,0 +1,118 @@
+<?php 
+	include("../Level_page.php");
+	lavel_Page_L2();
+	include_once($level."connection/Connection.php");
+	include($level."include/main.php");
+	date_default_timezone_set('Asia/Bangkok');
+	session_start();
+
+	include_once("check_login.php");
+?>
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title><?=$domain_sub;?> Admin</title>
+	
+	<link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="../css/style-main.css" rel="stylesheet">
+	<link href="../css/navbar.css" rel="stylesheet">
+	<link href="../css/product-list.css" rel="stylesheet">
+	<link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+	
+	<style>
+		html,body{
+			width: 100%;
+			height: 100%;
+			padding: 0;
+			margin: 0;
+		  }
+		.carousel-item img{
+			min-width: 100%;
+		}
+		#form_order input{
+			height: 35px;
+			margin-bottom: 10px;
+			font-size: 15px;
+			border: 0px;
+		}
+		#form_order textarea{
+			margin-bottom: 10px;
+			font-size: 15px;
+			border: 0px;
+		}		
+		.box_dash{
+			width: 250px;
+			height: 250px;
+			border: solid 15px;
+			padding-top: 20%;
+			transition: 0.2s;
+		}
+		.box_dash:hover{
+			border: solid 2px;
+		}
+		.card:hover{
+			-webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+			-moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+			box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75); 
+		}
+		.card-body a{
+			color: dimgray;
+		}
+	</style>	
+</head>
+<body class="font bg_color-W2">
+
+	<?php
+		include($level."teacher/navbar_teacher.php"); 
+	?>
+	
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12 bg_color-W2 pb-4" style="min-height: 100vh">
+				<div class="row">
+					<div class="col-3" ></div>
+					<div class="col-6 bg-dark text_color-main1 text-center py-2 mt-0" style="border-radius: 0px 0px 7px 7px">
+						<h5><i class="ion-ionic"></i> My Classroom</h5>
+					</div>
+					<div class="col-3"></div>
+				</div>
+				<div class="container">
+					<hr>
+					<div class="row pt-3 pb-3">
+						<?php for($i=0;$i<16;$i++){?>
+						<!-- Card  -->
+						<div class="col-lg-4">
+							<div class="card bg-secondary mb-3 btn_link_cursor" >
+								<div class="card-header ">
+									<h5 class="text-white"><b>#322345</b></h5>
+									<h6 class="text_color-main3">SubjectName</h6>
+								</div>
+								<div class="card-body pb-0">
+									<span class="card-text">Teacher  2 คน</span><br>
+									<span class="card-text">Teacher assistant  4 คน</span><br>
+									<span class="card-text">Student  50 คน</span>
+									<div class="mt-3 text-right text-size-28">										
+										<a href="#" class="link_main1 mr-2"><i class="icon ion-ios-folder"></i></a>
+										<a href="#" class="link_main1"><i class="icon ion-trash-b"></i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<?php } ?>
+						
+					</div>					
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script src="<?=$level;?>bootstrap/jquery-3.2.1.slim.min.js"></script>
+	<script src="<?=$level;?>bootstrap/popper.min.js"></script>	
+	<script src="<?=$level;?>bootstrap/js/bootstrap.min.js"></script>
+	<script src="<?=$level;?>js/jquery.min.js"></script>
+	<script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
+	
+</body>
+</html>

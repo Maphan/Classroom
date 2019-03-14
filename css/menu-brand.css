@@ -1,0 +1,24 @@
+#box-body{
+	padding: 30px 10px 30px 15px;
+}
+#box-body .menu{
+	margin-bottom: 10px;
+}
+#box-body .menu .h-menu{
+	font-size: 18px;
+	padding: 5px;
+	border-bottom: solid #F66249 3px;
+}
+#box-body .menu .h-menu .rounded-circle{
+	padding: 1px 8px;
+}
+#box-body .menu .item{
+	margin-top: 15px;
+	font-size: 14px;
+}
+#box-body .menu .item .form-control{
+	width: 65px;
+	margin-right: 3px;
+	padding: 3px 3px;
+	font-size: 14px;
+}
