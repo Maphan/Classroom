@@ -23,7 +23,7 @@ if(isset($_SESSION['Username']) && $_SESSION['permission']!=NULL){
 <head>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title><?=$domain_sub;?> Admin</title>
+	<title><?=$domain_sub;?></title>
 	
 	<link href="../../bootstrap/css/bootstrap.css" rel="stylesheet">
 	<link href="../../css/style-main.css" rel="stylesheet">
@@ -38,7 +38,7 @@ if(isset($_SESSION['Username']) && $_SESSION['permission']!=NULL){
 			padding: 0;
 			margin: 0;
 		  }
-		 #form_login input{
+		#form_login input{
 			height: 35px;
 			margin-bottom: 20px;
 			font-size: 15px;

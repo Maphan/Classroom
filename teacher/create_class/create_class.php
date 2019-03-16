@@ -1,12 +1,12 @@
 <?php 
-	include("../Level_page.php");
-	lavel_Page_L2();
+	include("../../Level_page.php");
+	lavel_Page_L3();
 	include_once($level."connection/Connection.php");
 	include($level."include/main.php");
 	date_default_timezone_set('Asia/Bangkok');
 	session_start();
 
-	include_once("check_login.php");
+	include_once("../check_login.php");
 ?>
 <!doctype html>
 <html>
@@ -15,10 +15,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title><?=$domain_sub;?></title>
 	
-	<link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
-	<link href="../css/style-main.css" rel="stylesheet">
-	<link href="../css/navbar.css" rel="stylesheet">
-	<link href="../css/product-list.css" rel="stylesheet">
+	<link href="../../bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="../../css/style-main.css" rel="stylesheet">
+	<link href="../../css/navbar.css" rel="stylesheet">
+	<link href="../../css/product-list.css" rel="stylesheet">
 	<link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
 	
 	<style>
@@ -31,17 +31,18 @@
 		.carousel-item img{
 			min-width: 100%;
 		}
-		#form_order input{
+		#form_login input{
 			height: 35px;
+			margin-bottom: 20px;
+			font-size: 15px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		#form_login textarea{
 			margin-bottom: 10px;
 			font-size: 15px;
 			border: 0px;
 		}
-		#form_order textarea{
-			margin-bottom: 10px;
-			font-size: 15px;
-			border: 0px;
-		}		
 		.box_dash{
 			width: 250px;
 			height: 250px;
@@ -81,27 +82,35 @@
 				<div class="container">
 					<hr>
 					<div class="row pt-3 pb-3">
-						<?php for($i=0;$i<16;$i++){?>
-						<!-- Card  -->
-						<div class="col-lg-4">
-							<div class="card bg-secondary mb-3 btn_link_cursor" >
-								<div class="card-header ">
-									<h5 class="text-white"><b>#322345</b></h5>
-									<h6 class="text_color-main3">SubjectName</h6>
+						<div class="col-md-3"></div>
+						<div class="col-md-6 text-center">
+							<form id="form_login" action="#" method="post" enctype="multipart/form-data">
+								<div class="col-md-12">
+									<input type="text" id="class_name" name="class_name" class="form-control" placeholder="Class name or Subject name" required>
 								</div>
-								<div class="card-body pb-0">
-									<span class="card-text">Teacher  2 คน</span><br>
-									<span class="card-text">Teacher assistant  4 คน</span><br>
-									<span class="card-text">Student  50 คน</span>
-									<div class="mt-3 text-right text-size-28">										
-										<a href="#" class="link_main1 mr-2"><i class="icon ion-ios-folder"></i></a>
-										<a href="#" class="link_main1"><i class="icon ion-trash-b"></i></a>
+								<div class="col-md-12">
+									<input type="text" id="subject_code" name="subject_code" class="form-control" placeholder="subject code" required>
+								</div>
+								<div class="row col-md-12 ">
+									<div class="col-md-6">
+										<input type="number" id="year" name="year" class="form-control" placeholder="Year (YYYY)" min="2018" required>
+									</div>
+									<div class="col-md-6">
+										<input type="number" id="term" name="term" class="form-control" placeholder="Term" min="1" max="3" required>
 									</div>
 								</div>
-							</div>
+								<div class="col-md-12">
+									<textarea id="des" name="des" class="form-control" rows="5" cols="100" placeholder="Class description"></textarea>
+								</div>
+								<div class="col-sm-12">
+									<p id="flag" style="color: red;"><?php if(isset($_GET['flag'])){echo $_GET['flag'];} ?></p>
+								</div>
+								<div class="col-md-12">
+									<button class="btn btn-main1" type="submit"><i class="ion-plus"></i> Create Class</button>
+								</div>
+							</form>
 						</div>
-						<?php } ?>
-						
+						<div class="col-md-3"></div>			
 					</div>					
 				</div>
 			</div>
