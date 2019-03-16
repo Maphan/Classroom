@@ -1,10 +1,6 @@
 <?php 
-session_start();
-include("connection/Connection.php");
-include("accout/getAccount.php");
-
-$acc = getAccount();
-
-echo $acc->firstname;
-
+for($i=0;$i<100;$i++){
+	sleep(0.25);
+	echo substr(uniqid(),3)."<br>";
+}
 ?>

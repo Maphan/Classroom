@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2019 at 07:17 AM
+-- Generation Time: Mar 16, 2019 at 04:48 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.1.26
 
@@ -31,11 +31,18 @@ SET time_zone = "+00:00";
 CREATE TABLE `classroom` (
   `class_id` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `subject_code` varchar(8) COLLATE utf8_unicode_ci NOT NULL,
-  `subject_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `subject_name` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
   `year` year(4) NOT NULL,
   `term` int(1) NOT NULL,
-  `des` text COLLATE utf8_unicode_ci NOT NULL
+  `des` text COLLATE utf8_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `classroom`
+--
+
+INSERT INTO `classroom` (`class_id`, `subject_code`, `subject_name`, `year`, `term`, `des`) VALUES
+('d19e30f753', '12345', 'test Class name ', 2018, 1, 'test text');
 
 -- --------------------------------------------------------
 
@@ -62,6 +69,13 @@ CREATE TABLE `owner_class` (
   `class_id` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `t_id` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `owner_class`
+--
+
+INSERT INTO `owner_class` (`i`, `class_id`, `t_id`) VALUES
+(1, 'd19e30f753', 1);
 
 -- --------------------------------------------------------
 
@@ -174,7 +188,7 @@ ALTER TABLE `class_member`
 -- AUTO_INCREMENT for table `owner_class`
 --
 ALTER TABLE `owner_class`
-  MODIFY `i` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `i` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `teacher`
