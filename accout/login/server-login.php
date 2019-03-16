@@ -21,15 +21,14 @@ if(isset($_POST['username']) && isset($_POST['pass'])){
 	if($stmt_login_T->rowCount()>0){ //Teacher login
 		$row_user=$stmt_login_T->fetch();		
 		$_SESSION['Username']=$row_user['email'];
-		$_SESSION['permission']="3";
-		echo "T";
-		// header("Location: ".$level."dashboard.php");
+		$_SESSION['permission']="3";		
+		header("Location: ".$level."accout/login/login.php");
 	}else if($stmt_login_S->rowCount()>0){ //Student login
 		$row_user=$stmt_login_S->fetch();
 		$_SESSION['Username']=$row_user['email'];
 		$_SESSION['permission']=$row_user['permission'];
-		// header("Location: ".$level."dashboard.php");
-		echo "s";
+		header("Location: ".$level."accout/login/login.php");
+		
 	}else {
 		header("Location: ".$level."accout/login/login.php?flag=username or password is incorrect");
 	}

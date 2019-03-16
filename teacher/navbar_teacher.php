@@ -26,7 +26,7 @@
 				</li>
 				<li class="nav-item" style="margin-left: 20px;">
 					<span class="ion-ionic text_color-W1 link_main2">
-					<a class="link_main2" href="<?=$level;?>admin/accout/server-logout.php">ออกจากระบบ</a></span>
+					<a class="link_main2" href="<?=$level?>accout/login/server-logout.php">ออกจากระบบ</a></span>
 				</li>
 			</ul>
 		  </div>

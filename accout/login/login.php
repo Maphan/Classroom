@@ -13,8 +13,7 @@ if(isset($_SESSION['Username']) && $_SESSION['permission']!=NULL){
 		header("Location: ".$level."teacher/home.php");
 	}else{
 		header("Location: ".$level."student/home.php");
-	}
-	
+	}	
 }
 	
 ?>
