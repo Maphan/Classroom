@@ -1,14 +1,6 @@
 <?php
 // Acount object
-class Account{
-		public $id;
-		public $email;
-		public $firstname;
-		public $lastname;
-		public $permission;
-		
-		function __construct(){}
-}
+include_once("Account_object.php");
 function getAccount(){
 	$account = new Account;
 	if(isset($_SESSION['Username']) && $_SESSION['permission']=="3"){

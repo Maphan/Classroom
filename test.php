@@ -1,6 +1,8 @@
 <?php 
-for($i=0;$i<100;$i++){
-	sleep(0.25);
-	echo substr(uniqid(),3)."<br>";
-}
+//include_once("accout/Account_object.php");
+include_once("connection/Connection.php");
+include_once("accout/getAccount.php");
+session_start();
+
+print_r(getAccount());
 ?>

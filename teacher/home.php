@@ -7,6 +7,8 @@
 	session_start();
 
 	include_once("check_login.php");
+	include_once($level."accout/getAccount.php");
+	include_once($level."classroom/func_getMyClassroom.php");
 ?>
 <!doctype html>
 <html>
@@ -81,18 +83,19 @@
 				<div class="container">
 					<hr>
 					<div class="row pt-3 pb-3">
-						<?php for($i=0;$i<16;$i++){?>
+						<?php foreach (getAll_Classroom_owner(getAccount()->id) as $classroom_temp) {?>
 						<!-- Card  -->
 						<div class="col-lg-4">
 							<div class="card bg-secondary mb-3 btn_link_cursor" >
 								<div class="card-header ">
-									<h5 class="text-white"><b>#322345</b></h5>
-									<h6 class="text_color-main3">SubjectName</h6>
+									<h5 class="text-white"><b>#<?php echo $classroom_temp->subject_code;?></b></h5>
+									<h6 class="text-white"><b><?php echo $classroom_temp->subject_name?></h6></b>
+									<span class="text-size-14"><?php echo "[".$classroom_temp->year."/".$classroom_temp->term."]"?></span>
 								</div>
 								<div class="card-body pb-0">
-									<span class="card-text">Teacher  2 คน</span><br>
-									<span class="card-text">Teacher assistant  4 คน</span><br>
-									<span class="card-text">Student  50 คน</span>
+									<span class="card-text">Teacher  # คน</span><br>
+									<span class="card-text">Teacher assistant  # คน</span><br>
+									<span class="card-text">Student  # คน</span>
 									<div class="mt-3 text-right text-size-28">										
 										<a href="#" class="link_main1 mr-2"><i class="icon ion-ios-folder"></i></a>
 										<a href="#" class="link_main1"><i class="icon ion-trash-b"></i></a>

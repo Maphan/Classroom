@@ -12,7 +12,7 @@
 				<a class="nav-link link_main2" href="<?=$level?>teacher/home.php">หน้าแรก<span class="sr-only"></span></a>
 			  </li>
 			  <li class="nav-item">
-				<a class="nav-link link_main2" href="create_class/create_class.php">สร้างคลาส</a>
+				<a class="nav-link link_main2" href="<?=$level?>teacher/create_class/create_class.php">สร้างคลาส</a>
 			  </li>
 			  <li class="nav-item">
 				<a class="nav-link link_main2" href="#"> คำเชิญเข้าร่วม</a>
