@@ -5,6 +5,7 @@
 	include($level."include/main.php");
 	date_default_timezone_set('Asia/Bangkok');
 	session_start();
+	include_once($level."classroom/func_getMyClassroom.php");
 ?>
 <!doctype html>
 <html>
@@ -67,7 +68,7 @@
 				<div class="row">
 					<div class="col-3" ></div>
 					<div class="col-6 bg-dark text_color-main1 text-center py-2 mt-0" style="border-radius: 0px 0px 7px 7px">
-						<h5><i class="ion-ionic"></i> #ชื่อ class</h5>
+						<h5><i class="ion-ionic"></i> <?=getClassroom($_GET['class_id'])->subject_name ?></h5>
 					</div>
 					<div class="col-3"></div>
 				</div>
@@ -77,10 +78,10 @@
 						<div class="col-4">
 							<center>
 								<div class="rounded-circle box_dash bg-dark" style="border-color: #808080 ">
-									<center><p class="text-size-26 text_color-W3"><i class="ion-cube"> </i>จำนวนนักเรียน</p></center>
+									<center><p class="text-size-26 text_color-W3"><i class="ion-person-stalker"> </i>จำนวนนักเรียน</p></center>
 									<center><b><p class="text-size-34 text_color-main1">
 										<!-- ************* -->
-										50 คน
+										# คน
 									</p></b></center>
 								</div>
 							</center>
@@ -88,10 +89,10 @@
 						<div class="col-4">
 							<center>
 								<div class="rounded-circle box_dash bg-dark" style="border-color: #808080 ">
-									<center><p class="text-size-26 text_color-W3"><i class="ion-ios-cart"> </i>จำนวน TA</p></center>
+									<center><p class="text-size-26 text_color-W3"><i class="ion-android-contact"> </i>จำนวน TA</p></center>
 									<center><b><p class="text-size-34 text_color-main1">
 										<!-- ************* -->
-										3 คน
+										# คน
 									</p></b></center>
 								</div>
 							</center>
@@ -102,7 +103,7 @@
 									<center><p class="text-size-26 text_color-W3"><i class="ion-arrow-graph-up-right"> </i>การเข้าเรียน</p></center>
 									<center><b><p class="text-size-34 text_color-main1">
 										<!-- ************* -->
-										90 %
+										## %
 									</p></b></center>
 								</div>
 							<center>

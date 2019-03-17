@@ -66,35 +66,14 @@
 			<?php include($level."menu/menu.php");?> <!-- include menu.php -->
 			
 			<div class="col-md-9 bg_color-W3 pb-4" style="min-height: 100vh">
-				<div class="row">
-					<div class="col-3" ></div>
-					<div class="col-6 bg-dark text_color-main1 text-center py-2 mt-0" style="border-radius: 0px 0px 7px 7px">
-						<h5><i class="ion-ionic"></i> <?=getClassroom($_GET['class_id'])->subject_name ?></h5>
-					</div>
-					<div class="col-3"></div>
-				</div>
 				<div class="container">
 					<hr>
 					<div class="row pt-5 pb-3 text-center">
-						<div class="col-md-3"></div>
-						<div class="col-md-6">
-							<form id="form_addTA" action="server_add_ta.php" method="post" enctype="multipart/form-data">
-								<div class="col-md-12">
-									<input type="text" id="class_name" name="class_name" class="form-control" value="<?=getClassroom($_GET['class_id'])->subject_name ?>" readonly>
-								</div>
-								<div class="col-md-12">
-									<input type="text" id="email" name="email" class="form-control" placeholder="Email" required>
-								</div>
-								<div class="col-sm-12">
-									<p id="flag" style="color: #FDABAC;"><?php if(isset($_GET['flag'])){echo $_GET['flag'];} ?></p>
-								</div>
-								<div class="col-md-12">
-									<button name="addTA_submit" class="btn btn-main1" type="submit"><i class="ion-plus"></i> Add Teacher Assistant </button>
-								</div>
-								<input type="hidden" name="class_id" id="class_id" value="<?=$_GET['class_id']?>" >
-							</form>
+						<div class="col-md-12  pb-4" style="height: 95vh">
+							<div class="alert alert-success text-center mt-5">
+								<h4><i class="ion-android-checkmark-circle"></i> สำเร็จ</h4>
+							</div>
 						</div>
-						<div class="col-md-3"></div>
 					</div>
 					
 				</div>

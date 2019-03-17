@@ -86,22 +86,24 @@
 						<?php foreach (getAll_Classroom_owner(getAccount()->id) as $classroom_temp) {?>
 						<!-- Card  -->
 						<div class="col-lg-4">
+							<a href="ClassRoom.php?class_id=<?=$classroom_temp->class_id;?>">
 							<div class="card bg-secondary mb-3 btn_link_cursor" >
 								<div class="card-header ">
-									<h5 class="text-white"><b>#<?php echo $classroom_temp->subject_code;?></b></h5>
-									<h6 class="text-white"><b><?php echo $classroom_temp->subject_name?></h6></b>
-									<span class="text-size-14"><?php echo "[".$classroom_temp->year."/".$classroom_temp->term."]"?></span>
+									<h5 class="text-white"><b>#<?=$classroom_temp->subject_code;?></b></h5>
+									<h6 class="text-white"><b><?=$classroom_temp->subject_name?></h6></b>
+									<span class="text-size-14"><?="[".$classroom_temp->year."/".$classroom_temp->term."]"?></span>
 								</div>
 								<div class="card-body pb-0">
 									<span class="card-text">Teacher  # คน</span><br>
 									<span class="card-text">Teacher assistant  # คน</span><br>
 									<span class="card-text">Student  # คน</span>
 									<div class="mt-3 text-right text-size-28">										
-										<a href="#" class="link_main1 mr-2"><i class="icon ion-ios-folder"></i></a>
+										<a href="ClassRoom.php?class_id=<?=$classroom_temp->class_id;?>" class="link_main1 mr-2"><i class="icon ion-ios-folder"></i></a>
 										<a href="#" class="link_main1"><i class="icon ion-trash-b"></i></a>
 									</div>
 								</div>
 							</div>
+							</a>
 						</div>
 						<?php } ?>
 						
