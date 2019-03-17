@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2019 at 04:48 PM
+-- Generation Time: Mar 17, 2019 at 01:05 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.1.26
 
@@ -42,7 +42,11 @@ CREATE TABLE `classroom` (
 --
 
 INSERT INTO `classroom` (`class_id`, `subject_code`, `subject_name`, `year`, `term`, `des`) VALUES
-('d19e30f753', '12345', 'test Class name ', 2018, 1, 'test text');
+('d19e30f753', '12345', 'test Class name ', 2018, 1, 'test text'),
+('d325306f54', '672341', 'test Class name  2', 2019, 1, '2222222222222s'),
+('e069374922', '12345s', 'test Class name  3', 2018, 2, 'sdfsdfewfgfwesdfergew'),
+('e0a0356013', '45456', 'test Class name  4', 2019, 2, 'edfrtgtrgftr'),
+('e0a3c94701', '894984', 'eqwewq', 2018, 1, 'ำไๆำไๆ');
 
 -- --------------------------------------------------------
 
@@ -75,7 +79,11 @@ CREATE TABLE `owner_class` (
 --
 
 INSERT INTO `owner_class` (`i`, `class_id`, `t_id`) VALUES
-(1, 'd19e30f753', 1);
+(1, 'd19e30f753', 1),
+(2, 'd325306f54', 1),
+(3, 'e069374922', 1),
+(4, 'e0a0356013', 1),
+(5, 'e0a3c94701', 1);
 
 -- --------------------------------------------------------
 
@@ -129,8 +137,16 @@ INSERT INTO `teacher` (`t_id`, `email`, `password`, `first_name`, `last_name`) V
 CREATE TABLE `teacher_assistant` (
   `i` int(10) NOT NULL,
   `std_id` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `class_id` varchar(10) COLLATE utf8_unicode_ci NOT NULL
+  `class_id` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `teacher_assistant`
+--
+
+INSERT INTO `teacher_assistant` (`i`, `std_id`, `class_id`, `date`) VALUES
+(1, 'class_id', '5930200516', '2019-03-17 12:02:48');
 
 --
 -- Indexes for dumped tables
@@ -188,7 +204,7 @@ ALTER TABLE `class_member`
 -- AUTO_INCREMENT for table `owner_class`
 --
 ALTER TABLE `owner_class`
-  MODIFY `i` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `i` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `teacher`
@@ -200,7 +216,7 @@ ALTER TABLE `teacher`
 -- AUTO_INCREMENT for table `teacher_assistant`
 --
 ALTER TABLE `teacher_assistant`
-  MODIFY `i` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `i` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
