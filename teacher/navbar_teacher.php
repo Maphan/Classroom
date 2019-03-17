@@ -1,5 +1,5 @@
 <!-- Navbar L1 -->
-	<nav class="navbar navbar-expand-lg navbar-dark bg_color-main3 text-size-14" style="padding: 5px; border-bottom: 0px solid #FFF; height: 60px;">
+	<nav class="navbar navbar-expand-lg navbar-dark bg_color-main3 text-size-14" style="padding: 5px; border-bottom: 0px solid #FFF; min-height: 60px;">
   	  <div class="container">
 		  <a class="navbar-brand" href="#"><img src="<?=$level?>images/logo_icon.png" height="40px"></a>
 		  <button class="navbar-toggler text_color-W1" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

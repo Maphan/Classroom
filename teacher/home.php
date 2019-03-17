@@ -20,7 +20,6 @@
 	<link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
 	<link href="../css/style-main.css" rel="stylesheet">
 	<link href="../css/navbar.css" rel="stylesheet">
-	<link href="../css/product-list.css" rel="stylesheet">
 	<link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
 	
 	<style>
