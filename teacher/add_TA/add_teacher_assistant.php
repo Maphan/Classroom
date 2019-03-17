@@ -1,6 +1,6 @@
 <?php 
-	include("../Level_page.php");
-	lavel_Page_L2();
+	include("../../Level_page.php");
+	lavel_Page_L3();
 	include_once($level."connection/Connection.php");
 	include($level."include/main.php");
 	date_default_timezone_set('Asia/Bangkok');
@@ -13,10 +13,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title><?=$domain_sub;?></title>
 	
-	<link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
-	<link href="../css/style-main.css" rel="stylesheet">
-	<link href="../css/navbar.css" rel="stylesheet">
-	<link href="../css/product-list.css" rel="stylesheet">
+	<link href="../../bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="../../css/style-main.css" rel="stylesheet">
+	<link href="../../css/navbar.css" rel="stylesheet">
+	<link href="../../css/product-list.css" rel="stylesheet">
 	<link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
 	
 	<style>
@@ -29,13 +29,14 @@
 		.carousel-item img{
 			min-width: 100%;
 		}
-		#form_order input{
+		#form_addTA input{
 			height: 35px;
-			margin-bottom: 10px;
+			margin-bottom: 20px;
 			font-size: 15px;
-			border: 0px;
+			margin-left: auto;
+			margin-right: auto;
 		}
-		#form_order textarea{
+		#form_addTA textarea{
 			margin-bottom: 10px;
 			font-size: 15px;
 			border: 0px;
@@ -67,46 +68,38 @@
 				<div class="row">
 					<div class="col-3" ></div>
 					<div class="col-6 bg-dark text_color-main1 text-center py-2 mt-0" style="border-radius: 0px 0px 7px 7px">
-						<h5><i class="ion-ionic"></i> #ชื่อ class</h5>
+						<h5><i class="ion-ionic"></i> เพิ่มผู้ช่วยสอน (TA)</h5>
 					</div>
 					<div class="col-3"></div>
 				</div>
 				<div class="container">
 					<hr>
 					<div class="row pt-5 pb-3">
-						<div class="col-4">
-							<center>
-								<div class="rounded-circle box_dash bg-dark" style="border-color: #808080 ">
-									<center><p class="text-size-26 text_color-W3"><i class="ion-cube"> </i>จำนวนนักเรียน</p></center>
-									<center><b><p class="text-size-34 text_color-main1">
-										<!-- ************* -->
-										50 คน
-									</p></b></center>
+						<form id="form_addTA" action="server_create_class.php" method="post" enctype="multipart/form-data">
+							<div class="col-md-12">
+								<input type="text" id="class_name" name="class_name" class="form-control" placeholder="Class name or Subject name" required>
+							</div>
+							<div class="col-md-12">
+								<input type="text" id="subject_code" name="subject_code" class="form-control" placeholder="subject code" required>
+							</div>
+							<div class="row col-md-12 ">
+								<div class="col-md-6">
+									<input type="number" id="year" name="year" class="form-control" placeholder="Year (YYYY)" min="2018" required>
 								</div>
-							</center>
-						</div>
-						<div class="col-4">
-							<center>
-								<div class="rounded-circle box_dash bg-dark" style="border-color: #808080 ">
-									<center><p class="text-size-26 text_color-W3"><i class="ion-ios-cart"> </i>จำนวน TA</p></center>
-									<center><b><p class="text-size-34 text_color-main1">
-										<!-- ************* -->
-										3 คน
-									</p></b></center>
+								<div class="col-md-6">
+									<input type="number" id="term" name="term" class="form-control" placeholder="Term" min="1" max="3" required>
 								</div>
-							</center>
-						</div>
-						<div class="col-4">
-							<center>
-								<div class="rounded-circle box_dash bg-dark" style="border-color: #808080 ">
-									<center><p class="text-size-26 text_color-W3"><i class="ion-arrow-graph-up-right"> </i>การเข้าเรียน</p></center>
-									<center><b><p class="text-size-34 text_color-main1">
-										<!-- ************* -->
-										90 %
-									</p></b></center>
-								</div>
-							<center>
-						</div>
+							</div>
+							<div class="col-md-12">
+								<textarea id="des" name="des" class="form-control" rows="5" cols="100" placeholder="Class description"></textarea>
+							</div>
+							<div class="col-sm-12">
+								<p id="flag" style="color: red;"><?php if(isset($_GET['flag'])){echo $_GET['flag'];} ?></p>
+							</div>
+							<div class="col-md-12">
+								<button class="btn btn-main1" type="submit"><i class="ion-plus"></i> Create Class</button>
+							</div>
+						</form>
 					</div>
 					
 				</div>

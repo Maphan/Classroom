@@ -82,7 +82,7 @@ if(isset($_SESSION['Username']) && $_SESSION['permission']!=NULL){
 					<p id="flag" style="color: red;"><?php if(isset($_GET['flag'])){echo $_GET['flag'];} ?></p>
 				</div>
 				<div class="col-md-12">
-					<button class="btn btn-main1" type="submit"><i class="ion-log-in"></i> เข้าสู่ระบบ</button>
+					<button name="login_submit" class="btn btn-main1" type="submit"><i class="ion-log-in"></i> เข้าสู่ระบบ</button>
 				</div>
 			</form>
 		</div>

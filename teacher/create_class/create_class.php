@@ -106,7 +106,7 @@
 									<p id="flag" style="color: red;"><?php if(isset($_GET['flag'])){echo $_GET['flag'];} ?></p>
 								</div>
 								<div class="col-md-12">
-									<button class="btn btn-main1" type="submit"><i class="ion-plus"></i> Create Class</button>
+									<button name="create_submit" class="btn btn-main1" type="submit"><i class="ion-plus"></i> Create Class</button>
 								</div>
 							</form>
 						</div>
