@@ -1,8 +1,5 @@
-<?php 
-//include_once("accout/Account_object.php");
-include_once("connection/Connection.php");
-include_once("accout/getAccount.php");
-session_start();
-
-print_r(getAccount());
+<?php
+	$str="abcdefg@kku.ac.th";
+	$l_mail=strlen($str)-10;
+	echo substr($str,0,$l_mail);
 ?>

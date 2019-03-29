@@ -75,6 +75,16 @@ if(isset($_SESSION['Username']) && $_SESSION['permission']!=NULL){
 				<div class="col-md-12">
 					<input type="text" id="username" name="username" class="form-control" placeholder="อีเมล | student id">
 				</div>
+				<div class="col-md-12 text-right mb-2">
+					<div class="form-check form-check-inline ">
+					  <input class="form-check-input" type="radio" name="login_type" id="inlineRadio1" value="0">
+					  <label class="form-check-label" for="inlineRadio1">@kku.ac.th</label>
+					</div>
+					<div class="form-check form-check-inline">
+					  <input class="form-check-input" type="radio" name="login_type" id="inlineRadio2" value="1">
+					  <label class="form-check-label" for="inlineRadio2">@kkumail.com</label>
+					</div>
+				</div>
 				<div class="col-md-12">
 					<input type="password" id="pass" name="pass" class="form-control" placeholder="รหัสผ่าน">
 				</div>
