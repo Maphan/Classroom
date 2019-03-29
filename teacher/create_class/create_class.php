@@ -99,6 +99,9 @@
 										<input type="number" id="term" name="term" class="form-control" placeholder="Term" min="1" max="3" required>
 									</div>
 								</div>
+								<div class="col-md-12 ">
+										<input type="number" id="section" name="section" class="form-control" placeholder="Section" min="1" required>
+								</div>
 								<div class="col-md-12">
 									<textarea id="des" name="des" class="form-control" rows="5" cols="100" placeholder="Class description"></textarea>
 								</div>
@@ -107,6 +110,9 @@
 								</div>
 								<div class="col-md-12">
 									<button name="create_submit" class="btn btn-main1" type="submit"><i class="ion-plus"></i> Create Class</button>
+								</div>
+								
+									
 								</div>
 							</form>
 						</div>
