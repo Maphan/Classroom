@@ -70,13 +70,6 @@
 					<div class="col-6 bg-dark text_color-main1 text-center py-2 mt-0" style="border-radius: 0px 0px 7px 7px">
 						<h5><i class="ion-ionic"></i> <?=getClassroom($_GET['class_id'])->subject_name ?></h5>
 					</div>
-					<?php 
-					// echo $_GET['class_id'] 
-					// $stmt_student_count=$sql->prepare("SELECT * FROM teacher WHERE email=? AND password=?");
-					// $stmt_student_count->bindParam(1, $username);
-					// $stmt_login_T->bindParam(2, $pass);
-					// $stmt_login_T->execute();
-					?>
 					<div class="col-3"></div>
 				</div>
 				<div class="container">
@@ -87,8 +80,15 @@
 								<div class="rounded-circle box_dash bg-dark" style="border-color: #808080 ">
 									<center><p class="text-size-26 text_color-W3"><i class="ion-person-stalker"> </i>จำนวนนักเรียน</p></center>
 									<center><b><p class="text-size-34 text_color-main1">
+									<?php 
+					$class_id=$_GET['class_id'];
+					$stmt_student_count=$sql->prepare("SELECT * FROM class_member WHERE class_id=?");
+					$stmt_student_count->bindParam(1, $class_id);
+					$stmt_student_count->execute();
+					echo $stmt_student_count->rowCount();
+					?>
 										<!-- ************* -->
-										# คน
+										 คน
 									</p></b></center>
 								</div>
 							</center>
@@ -101,7 +101,7 @@
 										<!-- ************* -->
 										 
 										<?php
-										$class_id=$_GET['class_id'];
+										
 										$stmt_ta=$sql->prepare("SELECT * FROM teacher_assistant WHERE class_id=?");
 										$stmt_ta->bindParam(1, $class_id);
 										$stmt_ta->execute();
