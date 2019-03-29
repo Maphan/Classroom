@@ -15,7 +15,7 @@ if(isset($_POST['class_id']) && isset($_POST['email'])){
 			$row_std= $stmt_std->fetch();
 			$std_id=$row_std['std_id'];
 			
-			if(add_TA($std_id,class_id)){
+			if(add_TA($std_id,$class_id)){
 				header("Location: success.php?class_id=".$class_id);
 			}else{
 				header("Location: add_teacher_assistant.php?class_id=".$class_id."&flag=Email not found! #1");
