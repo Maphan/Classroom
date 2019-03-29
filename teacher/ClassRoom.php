@@ -6,6 +6,8 @@
 	date_default_timezone_set('Asia/Bangkok');
 	session_start();
 	include_once($level."classroom/func_getMyClassroom.php");
+	include_once($level."accout/Account_object.php");
+	include_once($level."accout/getStudent.php");
 ?>
 <!doctype html>
 <html>
@@ -81,12 +83,12 @@
 									<center><p class="text-size-26 text_color-W3"><i class="ion-person-stalker"> </i>จำนวนนักเรียน</p></center>
 									<center><b><p class="text-size-34 text_color-main1">
 									<?php 
-					$class_id=$_GET['class_id'];
-					$stmt_student_count=$sql->prepare("SELECT * FROM class_member WHERE class_id=?");
-					$stmt_student_count->bindParam(1, $class_id);
-					$stmt_student_count->execute();
-					echo $stmt_student_count->rowCount();
-					?>
+									$class_id=$_GET['class_id'];
+									$stmt_student_count=$sql->prepare("SELECT * FROM class_member WHERE class_id=?");
+									$stmt_student_count->bindParam(1, $class_id);
+									$stmt_student_count->execute();
+									echo $stmt_student_count->rowCount();
+									?>
 										<!-- ************* -->
 										 คน
 									</p></b></center>
@@ -124,7 +126,29 @@
 							<center>
 						</div>
 					</div>
-					
+					<table class="table table-striped">
+						<thead>
+							<tr>
+							<th scope="col">รหัสนักศึกษา</th>
+							<th scope="col">ชื่อ</th>
+							<th scope="col">นามสกุล</th>
+							<th scope="col">มาเรียน (ครั้ง)</th>
+							</tr>
+						</thead>
+						
+						<tbody>
+						<?php 
+							while($row=$stmt_student_count->fetch()){
+								$std = getStudent($row['std_id']); ?>
+							<tr>
+							<th scope="row"><?php echo $std->id;?></th>
+							<td><?php echo $std->firstname;?></td>
+							<td><?php echo $std->lastname;?></td>
+							<td>#</td>
+							</tr>
+							<?php } ?>
+						</tbody>
+						</table>
 				</div>
 			</div>
 		</div>
