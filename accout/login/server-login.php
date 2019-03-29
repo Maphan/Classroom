@@ -27,9 +27,9 @@ if(isset($_POST['username']) && isset($_POST['pass']) && isset($_POST['login_typ
 			header("Location: ".$level."accout/login/login.php?flag=username or password is incorrect");
 		}
 
-	}else if($_POST['login_type' == '1']){
+	}else if($_POST['login_type'] == '1'){
 		$username=$username."@kkumail.com";
-		$stmt_login_S=$sql->prepare("SELECT * FROM student WHERE std_id=? AND password=?");
+		$stmt_login_S=$sql->prepare("SELECT * FROM student WHERE email=? AND password=?");
 		$stmt_login_S->bindParam(1, $username);
 		$stmt_login_S->bindParam(2, $pass);
 		$stmt_login_S->execute();
@@ -38,12 +38,13 @@ if(isset($_POST['username']) && isset($_POST['pass']) && isset($_POST['login_typ
 			$row_user=$stmt_login_S->fetch();
 			$_SESSION['Username']=$row_user['email'];
 			$_SESSION['permission']=$row_user['permission'];
-			header("Location: ".$level."accout/login/login.php");}
-			else {
+			header("Location: ".$level."accout/login/login.php");
+		}else {
 				header("Location: ".$level."accout/login/login.php?flag=username or password is incorrect");
 			}
 
-	}else{
+	}
+	else{
 		header("Location: ".$level."accout/login/login.php?flag=Incorrect user type.");
 	}
 	}
