@@ -70,6 +70,13 @@
 					<div class="col-6 bg-dark text_color-main1 text-center py-2 mt-0" style="border-radius: 0px 0px 7px 7px">
 						<h5><i class="ion-ionic"></i> <?=getClassroom($_GET['class_id'])->subject_name ?></h5>
 					</div>
+					<?php 
+					// echo $_GET['class_id'] 
+					// $stmt_student_count=$sql->prepare("SELECT * FROM teacher WHERE email=? AND password=?");
+					// $stmt_student_count->bindParam(1, $username);
+					// $stmt_login_T->bindParam(2, $pass);
+					// $stmt_login_T->execute();
+					?>
 					<div class="col-3"></div>
 				</div>
 				<div class="container">
