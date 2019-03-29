@@ -92,7 +92,15 @@
 									<center><p class="text-size-26 text_color-W3"><i class="ion-android-contact"> </i>จำนวน TA</p></center>
 									<center><b><p class="text-size-34 text_color-main1">
 										<!-- ************* -->
-										# คน
+										 
+										<?php
+										$class_id=$_GET['class_id'];
+										$stmt_ta=$sql->prepare("SELECT * FROM teacher_assistant WHERE class_id=?");
+										$stmt_ta->bindParam(1, $class_id);
+										$stmt_ta->execute();
+										echo $stmt_ta->rowCount();
+										?>
+										คน
 									</p></b></center>
 								</div>
 							</center>
