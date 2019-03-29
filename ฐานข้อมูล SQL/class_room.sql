@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 17, 2019 at 01:05 PM
+-- Generation Time: Mar 29, 2019 at 11:00 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.1.26
 
@@ -34,6 +34,7 @@ CREATE TABLE `classroom` (
   `subject_name` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
   `year` year(4) NOT NULL,
   `term` int(1) NOT NULL,
+  `section` int(3) NOT NULL,
   `des` text COLLATE utf8_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -41,12 +42,12 @@ CREATE TABLE `classroom` (
 -- Dumping data for table `classroom`
 --
 
-INSERT INTO `classroom` (`class_id`, `subject_code`, `subject_name`, `year`, `term`, `des`) VALUES
-('d19e30f753', '12345', 'test Class name ', 2018, 1, 'test text'),
-('d325306f54', '672341', 'test Class name  2', 2019, 1, '2222222222222s'),
-('e069374922', '12345s', 'test Class name  3', 2018, 2, 'sdfsdfewfgfwesdfergew'),
-('e0a0356013', '45456', 'test Class name  4', 2019, 2, 'edfrtgtrgftr'),
-('e0a3c94701', '894984', 'eqwewq', 2018, 1, 'ำไๆำไๆ');
+INSERT INTO `classroom` (`class_id`, `subject_code`, `subject_name`, `year`, `term`, `section`, `des`) VALUES
+('d19e30f753', '12345', 'test Class name ', 2018, 1, 0, 'test text'),
+('d325306f54', '672341', 'test Class name  2', 2019, 1, 0, '2222222222222s'),
+('e069374922', '12345s', 'test Class name  3', 2018, 2, 0, 'sdfsdfewfgfwesdfergew'),
+('e0a0356013', '45456', 'test Class name  4', 2019, 2, 0, 'edfrtgtrgftr'),
+('e0a3c94701', '894984', 'eqwewq', 2018, 1, 0, 'ำไๆำไๆ');
 
 -- --------------------------------------------------------
 
@@ -58,7 +59,6 @@ CREATE TABLE `class_member` (
   `i` int(11) NOT NULL,
   `class_id` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `std_id` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `section` int(3) NOT NULL,
   `join_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -97,15 +97,16 @@ CREATE TABLE `student` (
   `password` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `first_name` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
   `last_name` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
-  `permission` int(1) NOT NULL
+  `permission` int(1) NOT NULL,
+  `login_status` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `student`
 --
 
-INSERT INTO `student` (`std_id`, `email`, `password`, `first_name`, `last_name`, `permission`) VALUES
-('5930200516', 's01@s.com', '123', 's001', 'sss', 0);
+INSERT INTO `student` (`std_id`, `email`, `password`, `first_name`, `last_name`, `permission`, `login_status`) VALUES
+('5930200516', 's01@kkumail.com', '123123123', 's001', 'sss', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -118,15 +119,16 @@ CREATE TABLE `teacher` (
   `email` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `first_name` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
-  `last_name` varchar(80) COLLATE utf8_unicode_ci NOT NULL
+  `last_name` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
+  `login_status` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `teacher`
 --
 
-INSERT INTO `teacher` (`t_id`, `email`, `password`, `first_name`, `last_name`) VALUES
-(1, 't01@t.com', '123', 'AAAAAA', 'aaaaaaa');
+INSERT INTO `teacher` (`t_id`, `email`, `password`, `first_name`, `last_name`, `login_status`) VALUES
+(1, 't01@kku.ac.th', '123123123', 'AAAAAA', 'aaaaaaa', 0);
 
 -- --------------------------------------------------------
 
