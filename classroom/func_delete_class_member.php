@@ -5,9 +5,9 @@ function delete_class_member($class_id, $std_id){
 	$stmt_delete_class_member->bindParam(2, $std_id);
 	
 	if($stmt_delete_class_member->execute()){
-		return(true);
+		return("true");
 	}else{
-		return(false);
+		return("false");
 	}
 }
 ?>

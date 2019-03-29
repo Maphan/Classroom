@@ -20,6 +20,7 @@
 	<link href="../css/style-main.css" rel="stylesheet">
 	<link href="../css/navbar.css" rel="stylesheet">
 	<link href="../css/product-list.css" rel="stylesheet">
+	<link href="../css/Snackbar.css" rel="stylesheet">
 	<link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
 	
 	<style>
@@ -128,11 +129,12 @@
 					</div>
 					<table class="table table-striped">
 						<thead>
-							<tr>
+							<tr class="">
 							<th scope="col">รหัสนักศึกษา</th>
 							<th scope="col">ชื่อ</th>
 							<th scope="col">นามสกุล</th>
 							<th scope="col">มาเรียน (ครั้ง)</th>
+							<th scope="col">#</th>
 							</tr>
 						</thead>
 						
@@ -141,10 +143,12 @@
 							while($row=$stmt_student_count->fetch()){
 								$std = getStudent($row['std_id']); ?>
 							<tr>
-							<th scope="row"><?php echo $std->id;?></th>
+							<td><?php echo $std->id;?></td>
 							<td><?php echo $std->firstname;?></td>
 							<td><?php echo $std->lastname;?></td>
 							<td>#</td>
+							<td><div onclick="deleteMember('<?php echo $std->id;?>','<?php echo $class_id ?>')" class="link_main2 text-size-26"><i class="icon ion-trash-b"></i></div></td>
+						
 							</tr>
 							<?php } ?>
 						</tbody>
@@ -153,15 +157,39 @@
 			</div>
 		</div>
 	</div>
-	
+	<div id="snackbar">
+	</div>
 	<script src="<?=$level;?>bootstrap/jquery-3.2.1.slim.min.js"></script>
 	<script src="<?=$level;?>bootstrap/popper.min.js"></script>	
 	<script src="<?=$level;?>bootstrap/js/bootstrap.min.js"></script>
 	<script src="<?=$level;?>js/jquery.min.js"></script>
+	<script src="<?=$level;?>js/Snackbar.js"></script>
+	
 	
 	<script>var level='<?php echo $level?>';</script>
-	<script src="<?=$level?>js/count_cart.js"></script>
-	<script src="<?=$level?>js/delete_cart.js"></script>
+	<script>
+	function test(){
+		alert("yes");
+	}	
+	function deleteMember(std_id_p,class_id_p){
+		var r = confirm("Are you sure?");
+		if(r==true){
+			$.ajax({
+				type: "POST",
+				url: "../teacher/delete_student/server_delete_student.php",
+				data: {std_id:std_id_p,class_id:class_id_p},
+				success: function(res){
+					if(res=="true"){
+						Snackbar("ลบนักเรียนสำเร็จ");
+						setTimeout(function(){location.reload();},1500);
+					}else{
+						Snackbar("ลบนักเรียนไม่สำเร็จ");
+					}
+				}
+			})
+		}
+
+	}	</script>
 	
 </body>
 </html>
