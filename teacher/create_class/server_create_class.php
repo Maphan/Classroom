@@ -5,12 +5,12 @@ include("../../classroom/func_add_classroom.php");
 include("../../classroom/func_add_classroom_owner.php");
 include("../../accout/getAccount.php");
 	
-if(isset($_POST['class_name']) && isset($_POST['subject_code']) && isset($_POST['year']) && isset($_POST['term']) && isset($_POST['des'])){
+if(isset($_POST['class_name']) && isset($_POST['subject_code']) && isset($_POST['year']) && isset($_POST['term']) && isset($_POST['des'] && isset($_POST['section']))){
 	if(isset($_SESSION['permission']) && $_SESSION['permission']=="3"){
 		$id_owner = getAccount()->id;
 		$class_id = substr(uniqid(),3);
 		// inser classroom
-		if(add_classroom($class_id, $_POST['subject_code'], $_POST['class_name'], $_POST['year'], $_POST['term'], $_POST['des'])){
+		if(add_classroom($class_id, $_POST['subject_code'], $_POST['class_name'], $_POST['year'], $_POST['term'], $_POST['des'], $_POST['section'])){
 			//insert class owner
 			if(add_classroom_owner($class_id,$id_owner)){
 				header("Location: ../success.php");
