@@ -5,7 +5,7 @@ include("../../classroom/func_add_classroom.php");
 include("../../classroom/func_add_classroom_owner.php");
 include("../../accout/getAccount.php");
 	
-if(isset($_POST['class_name']) && isset($_POST['subject_code']) && isset($_POST['year']) && isset($_POST['term']) && isset($_POST['des'] && isset($_POST['section']))){
+if(isset($_POST['class_name']) && isset($_POST['subject_code']) && isset($_POST['year']) && isset($_POST['term']) && isset($_POST['des']) && isset($_POST['section'])){
 	if(isset($_SESSION['permission']) && $_SESSION['permission']=="3"){
 		$id_owner = getAccount()->id;
 		$class_id = substr(uniqid(),3);
