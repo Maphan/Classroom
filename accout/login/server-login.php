@@ -8,7 +8,7 @@ if(isset($_POST['username']) && isset($_POST['pass']) && isset($_POST['login_typ
 	$username=$_POST['username'];
 	$pass=$_POST['pass'];
 	if(strlen($pass) < 8){
-		header("Location: ".$level."accout/login/login.php?flag=username or password is incorrect");
+		header("Location: ".$level."accout/login/login.php?flag=Username or password is incorrect.");
 	}
 	if($_POST['login_type'] == '0'){
 		$username=$username."@kku.ac.th";
@@ -24,7 +24,7 @@ if(isset($_POST['username']) && isset($_POST['pass']) && isset($_POST['login_typ
 			header("Location: ".$level."accout/login/login.php");
 		}
 		else {
-			header("Location: ".$level."accout/login/login.php?flag=username or password is incorrect");
+			header("Location: ".$level."accout/login/login.php?flag=Username or password is incorrect.");
 		}
 
 	}else if($_POST['login_type'] == '1'){
@@ -40,7 +40,7 @@ if(isset($_POST['username']) && isset($_POST['pass']) && isset($_POST['login_typ
 			$_SESSION['permission']=$row_user['permission'];
 			header("Location: ".$level."accout/login/login.php");
 		}else {
-				header("Location: ".$level."accout/login/login.php?flag=username or password is incorrect");
+				header("Location: ".$level."accout/login/login.php?flag=Username or password is incorrect.");
 			}
 
 	}
@@ -49,6 +49,6 @@ if(isset($_POST['username']) && isset($_POST['pass']) && isset($_POST['login_typ
 	}
 	}
 else{
-	header("Location: ".$level."accout/login/login.php?flag=Empty field username or password");
+	header("Location: ".$level."accout/login/login.php?flag=Please enter username and password.");
 }
 ?>
