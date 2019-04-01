@@ -1,3 +1,5 @@
 <?php
-	echo json_encode(false);
+	if("3">"2"){
+		echo "333333";
+	}
 ?>
