@@ -153,9 +153,9 @@
 							<?php 
 							$status=getAll_Classroom_status($std->id,$class_id);
 							if($status=="0"){?>
-								<span class="text-success">ลงเรียน</span>	
+								<span class="text-success"><b>ลงเรียน</b></span>	
 							<?php }else if($status=="1"){	?>
-								<span class="text-danger">ดรอป</span>
+								<span class="text-danger"><b>ดรอป</b></span>
 							<?php } ?>  
 							
 							</td>
@@ -166,7 +166,7 @@
 								Action
 							</button>
 							<div class="dropdown-menu">
-								<a class="dropdown-item btn_link_cursor" href="#">ดรอปนักเรียน</a>
+								<a class="dropdown-item btn_link_cursor" onclick="dropMember('<?php echo $std->id;?>','<?php echo $class_id ?>','1')" >ดรอปนักเรียน</a>
 								<a class="dropdown-item btn_link_cursor" onclick="deleteMember('<?php echo $std->id;?>','<?php echo $class_id ?>')" >ลบนักเรียน</a>
 							</div>
 							</div>
@@ -190,9 +190,25 @@
 	
 	<script>var level='<?php echo $level?>';</script>
 	<script>
-	function test(){
-		alert("yes");
-	}	
+	function dropMember(std_id_p,class_id_p,status_p){
+		var r = confirm("Are you sure?");
+		if(r==true){
+			$.ajax({
+				type: "POST",
+				url: "../teacher/drop_student/server_set_enroll_class_status.php",
+				data: {std_id:std_id_p,class_id:class_id_p,status:status_p},
+				success: function(res){
+					if(res=="1"){
+						Snackbar("ดรอปนักเรียนสำเร็จ");
+						setTimeout(function(){location.reload();},1500);
+					}else{
+						Snackbar("ดรอปนักเรียนไม่สำเร็จ");
+					}
+				}
+			})
+		}
+
+	}
 	function deleteMember(std_id_p,class_id_p){
 		var r = confirm("Are you sure?");
 		if(r==true){
