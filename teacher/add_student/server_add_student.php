@@ -12,8 +12,9 @@ if(isset($_POST['class_id']) && isset($_POST['std_id'])){
 		$stmt_std->bindParam(1, $std_id);
 		$stmt_std->execute();
 		if($stmt_std->rowCount()>0){//Check student in system
-            $stmt_std_check=$sql->prepare("SELECT * FROM class_member WHERE std_id=?");
-            $stmt_std_check->bindParam(1, $std_id);
+            $stmt_std_check=$sql->prepare("SELECT * FROM class_member WHERE std_id=? AND class_id=?");
+			$stmt_std_check->bindParam(1, $std_id);
+			$stmt_std_check->bindParam(2,$class_id);
             $stmt_std_check->execute();
             if($stmt_std_check->rowCount()>0){//Check student in classroom
                 header("Location: add_student.php?class_id=".$class_id."&flag=Student already in classroom!");
