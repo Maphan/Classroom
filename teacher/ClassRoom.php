@@ -134,7 +134,8 @@
 							<th scope="col">ชื่อ</th>
 							<th scope="col">นามสกุล</th>
 							<th scope="col">มาเรียน (ครั้ง)</th>
-							<th scope="col">#</th>
+							<th scope="col">สถานะ</th>
+							<th scope="col">Action</th>
 							</tr>
 						</thead>
 						
@@ -147,8 +148,19 @@
 							<td><?php echo $std->firstname;?></td>
 							<td><?php echo $std->lastname;?></td>
 							<td>#</td>
-							<td><div onclick="deleteMember('<?php echo $std->id;?>','<?php echo $class_id ?>')" class="link_main2 text-size-26"><i class="icon ion-trash-b"></i></div></td>
-						
+							<td>   </td>
+							<td>
+							<!-- Example single danger button -->
+							<div class="btn-group">
+							<button type="button" class="btn btn-danger dropdown-toggle btn_link_cursor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Action
+							</button>
+							<div class="dropdown-menu">
+								<a class="dropdown-item btn_link_cursor" href="#">ดรอปนักเรียน</a>
+								<a class="dropdown-item btn_link_cursor" onclick="deleteMember('<?php echo $std->id;?>','<?php echo $class_id ?>')" >ลบนักเรียน</a>
+							</div>
+							</div>
+							</td>
 							</tr>
 							<?php } ?>
 						</tbody>
