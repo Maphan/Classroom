@@ -11,7 +11,7 @@
 if(isset($_SESSION['Username']) && $_SESSION['permission']!=NULL){
 	if($_SESSION['permission']=="3"){
 		header("Location: ".$level."teacher/home.php");
-	}else{
+	}else if($_SESSION['permission']=="0"){
 		header("Location: ".$level."student/home.php");
 	}	
 }

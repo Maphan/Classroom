@@ -43,9 +43,9 @@ if(isset($_POST['username']) && isset($_POST['pass']) && isset($_POST['login_typ
 				$status_login=$row_user['login_status']+1;
 				$stmt_reset_status->bindParam(1, $status_login);
 				$stmt_reset_status->bindParam(2, $username);
-				$stmt_reset_status->execute();
-				header("Location: ".$level."accout/login/login.php?flag=Username or password is incorrect.");
+				$stmt_reset_status->execute();				
 			}
+			header("Location: ".$level."accout/login/login.php?flag=Username or password is incorrect.");
 		}
 
 	}else if($_POST['login_type'] == '1'){
@@ -82,8 +82,8 @@ if(isset($_POST['username']) && isset($_POST['pass']) && isset($_POST['login_typ
 				$stmt_reset_status->bindParam(1, $status_login);
 				$stmt_reset_status->bindParam(2, $username);
 				$stmt_reset_status->execute();
-				header("Location: ".$level."accout/login/login.php?flag=Username or password is incorrect.");
 			}
+			header("Location: ".$level."accout/login/login.php?flag=Username or password is incorrect.");
 		}
 
 	}

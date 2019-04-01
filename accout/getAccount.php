@@ -16,7 +16,7 @@ function getAccount(){
 		$account->lastname=$row_T['last_name'];
 		$account->permission="3";
 		
-	}else if(isset($_SESSION['Username']) && $_SESSION['permission']=="1"){
+	}else if(isset($_SESSION['Username']) && $_SESSION['permission']=="0"){
 		$username=$_SESSION['Username'];
 		$stmt_login_T=$GLOBALS['sql']->prepare("SELECT * FROM student WHERE email=?");
 		$stmt_login_T->bindParam(1, $username);
@@ -27,7 +27,7 @@ function getAccount(){
 		$account->email=$row_T['email'];
 		$account->firstname=$row_T['first_name'];
 		$account->lastname=$row_T['last_name'];
-		$account->permission="1";
+		$account->permission="0";
 
 	}else if(isset($_SESSION['Username']) && $_SESSION['permission'] != "3" && $_SESSION['permission'] != null){
 		$username=$_SESSION['Username'];
