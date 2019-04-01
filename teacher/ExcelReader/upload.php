@@ -4,7 +4,6 @@ include("ExcelRead.php");
 include("deleteFile.php");
 include("../../classroom/func_add_class_member.php");
 
-
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
@@ -52,7 +51,9 @@ if ($uploadOk == 0) {
 			}
 		}
 		if($flag==true){
-			echo "upload success fully.";
+			header("Location: ../add_student/success.php");
+		}else{
+			header("Location: ../add_student/fail.php");
 		}
 		
 //        echo '<pre>';
