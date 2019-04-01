@@ -31,5 +31,31 @@ function getAll_Classroom_owner($account_id){
 	return($classroom_list);
 }//end func
 
+function getAll_Classroom_student($account_id){
+	$classroom_list=array();
+	
+	$stmt=$GLOBALS['sql']->prepare("SELECT * FROM class_member WHERE std_id = ?");
+	$stmt->bindParam(1, $account_id);
+	$stmt->execute();
+	
+	while($row_myClass=$stmt->fetch()){		
+		$classroom_list[]=getClassroom($row_myClass['class_id']);		
+	}//end ehile
+	return($classroom_list);
+}//end func
+
+function getAll_Classroom_ta($account_id){
+	$classroom_list=array();
+	
+	$stmt=$GLOBALS['sql']->prepare("SELECT * FROM teacher_assistant WHERE std_id = ?");
+	$stmt->bindParam(1, $account_id);
+	$stmt->execute();
+	
+	while($row_myClass=$stmt->fetch()){		
+		$classroom_list[]=getClassroom($row_myClass['class_id']);		
+	}//end ehile
+	return($classroom_list);
+}//end func
+
 
 ?>
