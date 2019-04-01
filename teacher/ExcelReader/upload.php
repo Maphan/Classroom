@@ -1,4 +1,5 @@
 <?php
+include("../../connection/Connection.php");
 include("ExcelRead.php");
 include("deleteFile.php");
 include("../../classroom/func_add_class_member.php");
