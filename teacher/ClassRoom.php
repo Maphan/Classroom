@@ -6,6 +6,7 @@
 	date_default_timezone_set('Asia/Bangkok');
 	session_start();
 	include_once($level."classroom/func_getMyClassroom.php");
+	include_once($level."classroom/func_get_enroll_status.php");
 	include_once($level."accout/Account_object.php");
 	include_once($level."accout/getStudent.php");
 ?>
@@ -148,7 +149,16 @@
 							<td><?php echo $std->firstname;?></td>
 							<td><?php echo $std->lastname;?></td>
 							<td>#</td>
-							<td>   </td>
+							<td> 
+							<?php 
+							$status=getAll_Classroom_status($std->id,$class_id);
+							if($status=="0"){?>
+								<span class="text-success">ลงเรียน</span>	
+							<?php }else if($status=="1"){	?>
+								<span class="text-danger">ดรอป</span>
+							<?php } ?>  
+							
+							</td>
 							<td>
 							<!-- Example single danger button -->
 							<div class="btn-group">
