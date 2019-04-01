@@ -44,7 +44,13 @@ if ($uploadOk == 0) {
 		$flag=true;
 		$count_insert_success=0;
 		foreach($data_array as $std){
-			if(add_class_member($_POST['class_id'], $std['std_id'])){
+            $std_id="";
+            for($i=0;$i<11;$i++){
+                if($std['std_id'][$i]!='-'){
+                    $std_id=$std_id.$std['std_id'][$i];
+                }
+            }
+			if(add_class_member($_POST['class_id'], $std_id)){
 				$count_insert_success++;
 			}else{
 				$flag=false;
