@@ -1,4 +1,7 @@
 <!-- Navbar L1 -->
+<?php 
+include_once($level."accout/getAccount.php");
+?>
 	<nav class="navbar navbar-expand-lg navbar-dark bg_color-main3 text-size-14" style="padding: 5px;">
   	  <div class="container">
 		  <a class="navbar-brand pc-hid" href="#">Navbar</a>
@@ -46,7 +49,9 @@
 				<?php }else{?>
 				<li class="nav-item dropdown" style="margin-left: 20px;">
 					<a class="dropdown-toggle link_main2 ion-android-person" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					  <?=$_SESSION['Username'];?>
+						<?php $acc=getAccount(); 
+							echo $acc->firstname;
+						?>
 					</a>
 					<div class="dropdown-menu text-size-14" aria-labelledby="navbarDropdown">
 					  <a class="dropdown-item link_main3" href="<?=$level?>#">โปรไฟล์</a>
