@@ -17,9 +17,6 @@ include_once($level."accout/getAccount.php");
 			  <li class="nav-item">
 				<a class="nav-link link_main2" href="<?=$level?>teacher/create_class/create_class.php">สร้างคลาส</a>
 			  </li>
-			  <li class="nav-item">
-				<a class="nav-link link_main2" href="#"> คำเชิญเข้าร่วม</a>
-			  </li>
 			</ul>
 			
 			<ul class="navbar-nav ml-auto">
