@@ -79,34 +79,35 @@
 						<div class="col-md-3"></div>
 						<div class="col-md-6">
                             <form id="form_editClass" action="server_edit_class.php" method="post" enctype="multipart/form-data">
-								<div class="col-md-12">
+								<div class="col-md-12 pb-4">
                                 <input type="text" id="class_name" name="class_name" class="form-control" value="<?=getClassroom($_GET['class_id'])->subject_name ?>" readonly>
 								</div>
-								<div class="col-md-12">
+								<div class="col-md-12 pb-4">
 									<input type="text" id="subject_code" name="subject_code" class="form-control" value="<?=getClassroom($_GET['class_id'])->subject_code ?>" readonly>
 								</div>
 								<div class="row col-md-12 ">
-									<div class="col-md-6">
+									<div class="col-md-6 pb-4">
 										<input type="number" id="year" name="year" class="form-control" value="<?=getClassroom($_GET['class_id'])->year ?>" min="2018" required>
 									</div>
-									<div class="col-md-6">
+									<div class="col-md-6 pb-4">
 										<input type="number" id="term" name="term" class="form-control" value="<?=getClassroom($_GET['class_id'])->term ?>" required>
 									</div>
 								</div>
-								<div class="col-md-12 ">
+								<div class="col-md-12 pb-4">
 										<input type="number" id="section" name="section" class="form-control" value="<?=getClassroom($_GET['class_id'])->section ?>" readonly>
                                         <input type="hidden" name="class_id" id="class_id" value="<?=$_GET['class_id']?>" >
                                         <input type="hidden" name="subject_name" id="subject_name" value="<?=getClassroom($_GET['class_id'])->subject_name ?>" >
                                         <input type="hidden" name="section" id="section" value="<?=getClassroom($_GET['class_id'])->section ?>" >
 								</div>
-								<div class="col-md-12">
-									<textarea id="des" name="des" class="form-control" rows="5" cols="100" value="<?=getClassroom($_GET['class_id'])->des ?>" ></textarea>
+								<div class="col-md-12 pb-4">
+									<textarea id="des" name="des" class="form-control" rows="5" cols="100"><?=getClassroom($_GET['class_id'])->des; ?></textarea>
 								</div>
 								<div class="col-sm-12">
 									<p id="flag" style="color: red;"><?php if(isset($_GET['flag'])){echo $_GET['flag'];} ?></p>
 								</div>
 								<div class="col-md-12">
 									<button name="create_submit" class="btn btn-main1" type="submit"><i class="ion-plus"></i> Update Class</button>
+                                    
 								</div>
 								</div>
 							</form>
