@@ -1,7 +1,7 @@
 <?php
 include("../../connection/Connection.php");
 include("ExcelRead.php");
-include("deleteFile.php");
+//include("deleteFile.php");
 include("../../classroom/func_add_class_member.php");
 
 $target_dir = "uploads/";
@@ -30,43 +30,30 @@ if($imageFileType != "xls" && $imageFileType != "xlsx") {
     $uploadOk = 0;
 }
 // Check if $uploadOk is set to 0 by an error
-$file_name="123.".$imageFileType;
 if ($uploadOk == 0) {
     echo "Sorry, your file was not uploaded.";
 // if everything is ok, try to upload file
 } else {
-    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "uploads/".$file_name)) {
-        echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-
-        $data_array=ReadExcel("uploads/".$file_name); // ExcelReading
-        deleteFile("uploads/".$file_name);
-        
-		$flag=true;
-		$count_insert_success=0;
-		foreach($data_array as $std){
-            $std_id="";
-            for($i=0;$i<11;$i++){
-                if($std['std_id'][$i]!='-'){
-                    $std_id=$std_id.$std['std_id'][$i];
-                }
-            }
-			if(add_class_member($_POST['class_id'], $std_id)){
-				$count_insert_success++;
-			}else{
-				$flag=false;
+    $data_array=ReadExcel($_FILES["fileToUpload"]["tmp_name"]); // ExcelReading
+	$flag=true;
+	$count_insert_success=0;
+	foreach($data_array as $std){
+		$std_id="";
+		for($i=0;$i<11;$i++){
+			if($std['std_id'][$i]!='-'){
+				$std_id=$std_id.$std['std_id'][$i];
 			}
 		}
-		if($flag==true){
-			header("Location: ../add_student/success.php?class_id=".$_POST['class_id']);
+		if(add_class_member($_POST['class_id'], $std_id)){
+			$count_insert_success++;
 		}else{
-			header("Location: ../add_student/fail.php");
+			$flag=false;
 		}
-		
-//        echo '<pre>';
-//        var_dump($data_array);
-//        echo '</pre><hr />';
-    } else {
-        echo "Sorry, there was an error uploading your file.";
-    }
+	}
+	if($flag==true){
+		header("Location: ../add_student/success.php?class_id=".$_POST['class_id']);
+	}else{
+		header("Location: ../add_student/fail.php?class_id=".$_POST['class_id']);
+	}
 }
 ?>
