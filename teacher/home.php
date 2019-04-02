@@ -107,7 +107,7 @@
 									<span class="card-text">Student <?php echo $std_count->rowCount();?> คน</span>
 									<div class="mt-3 text-right text-size-28">										
 										<a href="ClassRoom.php?class_id=<?=$classroom_temp->class_id;?>" class="link_main1 mr-2"><i class="icon ion-ios-folder"></i></a>
-										<a href="delete_classroom/server_delete_classroom.php?class_id=<?=$classroom_temp->class_id;?>" class="link_main1"><i class="icon ion-trash-b"></i></a>
+										<a href="delete_classroom/server_delete_classroom.php?class_id=<?=$classroom_temp->class_id;?>" class="link_main1" onclick="return confirm('Are you sure?')"><i class="icon ion-trash-b"></i></a>
 									</div>
 								</div>
 							</div>
@@ -126,6 +126,7 @@
 	<script src="<?=$level;?>bootstrap/js/bootstrap.min.js"></script>
 	<script src="<?=$level;?>js/jquery.min.js"></script>
 	<script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
+	
 	
 </body>
 </html>
