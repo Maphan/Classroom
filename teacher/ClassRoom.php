@@ -166,8 +166,9 @@
 								Action
 							</button>
 							<div class="dropdown-menu">
-								<a class="dropdown-item btn_link_cursor" onclick="dropMember('<?php echo $std->id;?>','<?php echo $class_id ?>','1')" >ดรอปนักเรียน</a>
-								<a class="dropdown-item btn_link_cursor" onclick="deleteMember('<?php echo $std->id;?>','<?php echo $class_id ?>')" >ลบนักเรียน</a>
+								<a class="dropdown-item btn_link_cursor" onclick="dropMember('<?php echo $std->id;?>','<?php echo $class_id ?>','1')" >ดรอป</a>
+								<a class="dropdown-item btn_link_cursor" onclick="dropMember('<?php echo $std->id;?>','<?php echo $class_id ?>','2')" >ถอน</a>
+								<a class="dropdown-item btn_link_cursor" onclick="deleteMember('<?php echo $std->id;?>','<?php echo $class_id ?>')" >ลบ</a>
 							</div>
 							</div>
 							</td>

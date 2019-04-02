@@ -57,7 +57,7 @@ if ($uploadOk == 0) {
 			}
 		}
 		if($flag==true){
-			header("Location: ../add_student/success.php");
+			header("Location: ../add_student/success.php?class_id=".$_POST['class_id']);
 		}else{
 			header("Location: ../add_student/fail.php");
 		}
