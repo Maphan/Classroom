@@ -13,7 +13,8 @@ function getClassroom($class_id){
 		$class_temp->subject_code=$row_classroom['subject_code'];
 		$class_temp->subject_name=$row_classroom['subject_name'];
 		$class_temp->year=$row_classroom['year'];
-		$class_temp->term=$row_classroom['term'];		
+		$class_temp->term=$row_classroom['term'];
+		$class_temp->section=$row_classroom['section'];		
 		$class_temp->des=$row_classroom['des'];
 	return($class_temp);
 }

@@ -5,8 +5,9 @@
 		public $subject_name;
 		public $year;
 		public $term;
+		public $section;		
 		public $des;
-		
+
 		function __construct(){}
 	}
 ?>
