@@ -96,15 +96,15 @@
 									<?php $teacher_count=$sql->prepare("SELECT * FROM owner_class WHERE class_id=?"); ?>
 									<?php $teacher_count->bindParam(1,$classroom_temp->class_id);?>
 									<?php $teacher_count->execute(); ?>
-									<span class="card-text">Teacher <?php echo $teacher_count->rowCount();?> คน</span><br>
+									<span class="card-text" style="color: #252525">Teacher <?php echo $teacher_count->rowCount();?> คน</span><br>
 									<?php $ta_count=$sql->prepare("SELECT * FROM teacher_assistant WHERE class_id=?"); ?>
 									<?php $ta_count->bindParam(1,$classroom_temp->class_id);?>
 									<?php $ta_count->execute(); ?>
-									<span class="card-text">Teacher assistant <?php echo $ta_count->rowCount();?> คน</span><br>
+									<span class="card-text" style="color: #252525">Teacher assistant <?php echo $ta_count->rowCount();?> คน</span><br>
 									<?php $std_count=$sql->prepare("SELECT * FROM class_member WHERE class_id=?"); ?>
 									<?php $std_count->bindParam(1,$classroom_temp->class_id);?>
 									<?php $std_count->execute(); ?>
-									<span class="card-text">Student <?php echo $std_count->rowCount();?> คน</span>
+									<span class="card-text" style="color: #252525">Student <?php echo $std_count->rowCount();?> คน</span>
 									<div class="mt-3 text-right text-size-28">										
 										<a href="ClassRoom.php?class_id=<?=$classroom_temp->class_id;?>" class="link_main1 mr-2"><i class="icon ion-ios-folder"></i></a>
 										<a href="delete_classroom/server_delete_classroom.php?class_id=<?=$classroom_temp->class_id;?>" class="link_main1" onclick="return confirm('Are you sure?')"><i class="icon ion-trash-b"></i></a>
