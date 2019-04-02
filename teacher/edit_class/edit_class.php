@@ -80,7 +80,7 @@
 						<div class="col-md-6">
                             <form id="form_editClass" action="server_edit_class.php" method="post" enctype="multipart/form-data">
 								<div class="col-md-12 pb-4">
-                                <input type="text" id="class_name" name="class_name" class="form-control" value="<?=getClassroom($_GET['class_id'])->subject_name ?>" readonly>
+                                <input type="text" id="class_name" name="subject_name" class="form-control" value="<?=getClassroom($_GET['class_id'])->subject_name ?>">
 								</div>
 								<div class="col-md-12 pb-4">
 									<input type="text" id="subject_code" name="subject_code" class="form-control" value="<?=getClassroom($_GET['class_id'])->subject_code ?>" readonly>
@@ -94,10 +94,8 @@
 									</div>
 								</div>
 								<div class="col-md-12 pb-4">
-										<input type="number" id="section" name="section" class="form-control" value="<?=getClassroom($_GET['class_id'])->section ?>" readonly>
+										<input type="number" id="section" name="section" class="form-control" value="<?=getClassroom($_GET['class_id'])->section ?>">
                                         <input type="hidden" name="class_id" id="class_id" value="<?=$_GET['class_id']?>" >
-                                        <input type="hidden" name="subject_name" id="subject_name" value="<?=getClassroom($_GET['class_id'])->subject_name ?>" >
-                                        <input type="hidden" name="section" id="section" value="<?=getClassroom($_GET['class_id'])->section ?>" >
 								</div>
 								<div class="col-md-12 pb-4">
 									<textarea id="des" name="des" class="form-control" rows="5" cols="100"><?=getClassroom($_GET['class_id'])->des; ?></textarea>

@@ -97,6 +97,7 @@
 									</div>
 									<div class="col-md-6">
 										<input type="number" id="term" name="term" class="form-control" placeholder="Term" min="1" max="3" required>
+										
 									</div>
 								</div>
 								<div class="col-md-12 ">
