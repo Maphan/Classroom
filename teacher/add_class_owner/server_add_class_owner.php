@@ -8,17 +8,17 @@ if(isset($_POST['class_id']) && isset($_POST['email'])){
 		$class_id = $_POST['class_id'];
 		$email_std = $_POST['email'];
 		
-		$stmt_std=$sql->prepare("SELECT * FROM teacher WHERE email=?");
-		$stmt_std->bindParam(1, $email_std);
-		$stmt_std->execute();
-		if($stmt_std->rowCount()>0){
-			$row_std= $stmt_std->fetch();
-			$std_id=$row_std['t_id'];
+		$stmt_t=$sql->prepare("SELECT * FROM teacher WHERE email=?");
+		$stmt_t->bindParam(1, $email_std);
+		$stmt_t->execute();
+		if($stmt_t->rowCount()>0){
+			$row_t= $stmt_t->fetch();
+			$t_id=$row_t['t_id'];
 			
-			if(add_class_owner($t_id,$class_id)){
+			if(add_class_owner($class_id,$t_id)){
 				header("Location: success.php?class_id=".$class_id);
 			}else{
-				header("Location: add_class_owner.php?class_id=".$class_id."&flag=Add teacher fail! #1");
+				header("Location: add_class_owner.php?class_id=".$class_id."&flag=Add teacher fail! #1".$std_id);
 			}
 		}else{
 			header("Location: add_class_owner.php?class_id=".$class_id."&flag=Email not found!");
