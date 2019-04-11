@@ -86,10 +86,10 @@
 						<div class="col-md-6 text-center">
 							<form id="form_login" action="server_create_class.php" method="post" enctype="multipart/form-data">
 								<div class="col-md-12">
-									<input type="text" id="class_name" name="class_name" class="form-control" placeholder="Class name or Subject name" pattern="[A-Za-z0-9]*" required>
+									<input type="text" id="class_name" name="class_name" class="form-control" placeholder="Class name or Subject name" pattern="[a-zA-Z0-9\s]*" required>
 								</div>
 								<div class="col-md-12">
-									<input type="text" id="subject_code" name="subject_code" class="form-control" placeholder="subject code" pattern="[A-Za-z0-9]*" required>
+									<input type="text" id="subject_code" name="subject_code" class="form-control" placeholder="subject code" pattern="[a-zA-Z0-9\s]*" required>
 								</div>
 								<div class="row col-md-12 ">
 									<div class="col-md-6">
