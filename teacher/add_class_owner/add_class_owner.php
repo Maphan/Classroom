@@ -78,7 +78,7 @@
 					<div class="row pt-5 pb-3 text-center">
 						<div class="col-md-3"></div>
 						<div class="col-md-6">
-							<form id="form_addTA" action="" method="post" enctype="multipart/form-data">
+							<form id="form_addTA" action="server_add_class_owner.php" method="post" enctype="multipart/form-data">
 								<div class="col-md-12">
 									<input type="text" id="class_name" name="class_name" class="form-control" value="<?=getClassroom($_GET['class_id'])->subject_name ?>" readonly>
 								</div>
