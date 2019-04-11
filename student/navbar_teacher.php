@@ -14,9 +14,18 @@ include_once($level."accout/getAccount.php");
 			  <li class="nav-item active">
 				<a class="nav-link link_main2" href="<?=$level?>student/home.php">หน้าแรก<span class="sr-only"></span></a>
 			  </li>
+				<?php
+					$acc=getAccount();
+					echo $acc->permission;
+					if($acc->permission==1){
+				?>
 			  <li class="nav-item">
 				<a class="nav-link link_main2" href="<?=$level?>student/home_ta.php">ผู้ช่วยสอน</a>
 			  </li>
+				<li class="nav-item">
+				<a class="nav-link link_main2" href="<?=$level?>student/home_ta.php">สร้างคลาส</a>
+			  </li>
+				<?php } ?>
 			  <li class="nav-item">
 				<a class="nav-link link_main2" href="#"></a>
 			  </li>
