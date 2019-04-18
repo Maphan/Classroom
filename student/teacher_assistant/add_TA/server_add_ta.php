@@ -1,11 +1,11 @@
 <?php
 session_start();
-include("../../connection/Connection.php");
-include("../../classroom/func_add_ta.php");
-include("../../classroom/func_update_permission_std.php");
+include("../../../connection/Connection.php");
+include("../../../classroom/func_add_ta.php");
+include("../../../classroom/func_update_permission_std.php");
 
 if(isset($_POST['class_id']) && isset($_POST['email'])){
-	if(isset($_SESSION['permission']) && $_SESSION['permission']=="3"){
+	if(isset($_SESSION['permission']) && $_SESSION['permission']=="1"){
 		$class_id = $_POST['class_id'];
 		$email_std = $_POST['email'];
 		

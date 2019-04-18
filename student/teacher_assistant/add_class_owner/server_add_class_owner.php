@@ -1,7 +1,7 @@
 <?php
 session_start();
-include("../../connection/Connection.php");
-include("../../classroom/func_add_class_owner.php");
+include("../../../connection/Connection.php");
+include("../../../classroom/func_add_class_owner.php");
 
 if(isset($_POST['class_id']) && isset($_POST['email'])){
 	if(isset($_SESSION['permission'])){
