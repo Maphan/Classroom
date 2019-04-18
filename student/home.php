@@ -85,7 +85,7 @@
 						<?php foreach (getAll_Classroom_student(getAccount()->id) as $classroom_temp) {?>
 						<!-- Card  -->
 						<div class="col-lg-4">
-							<a href="ClassRoom.php?class_id=<?=$classroom_temp->class_id;?>">
+							<a href="class_room/ClassRoom.php?class_id=<?=$classroom_temp->class_id;?>">
 							<div class="card bg-secondary mb-3 btn_link_cursor" >
 								<div class="card-header ">
 									<h5 class="text-white"><b>#<?=$classroom_temp->subject_code;?></b></h5>
