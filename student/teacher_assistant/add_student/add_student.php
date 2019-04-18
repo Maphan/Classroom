@@ -56,9 +56,7 @@
 </head>
 <body class="font bg_color-W2">
 
-	<?php
-include $level . "student/navbar_teacher.php";
-?>
+	<?php include $level."student/navbar_teacher.php";?>
 
 	<div class="container-fluid">
 		<div class="row">
@@ -114,7 +112,7 @@ include $level . "student/navbar_teacher.php";
 					<div class="row pt-5 pb-3 text-center">
 					<div class="col-md-3"></div>
 					<div class="col-md-6">
-						  <form id="form_addTA" action="<?php echo $level; ?>teacher/ExcelReader/upload.php" method="post" enctype="multipart/form-data">
+						  <form id="form_addTA" action="<?php echo $level; ?>student/teacher_assistant/ExcelReader/upload.php" method="post" enctype="multipart/form-data">
 								<div class="col-md-12">
 									<input type="file" id="std_id" name="fileToUpload" class="form-control" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" / required>
 								</div>

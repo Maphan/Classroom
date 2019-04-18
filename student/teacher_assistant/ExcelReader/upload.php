@@ -1,8 +1,8 @@
 <?php
-include("../../connection/Connection.php");
+include("../../../connection/Connection.php");
 include("ExcelRead.php");
 //include("deleteFile.php");
-include("../../classroom/func_add_class_member.php");
+include("../../../classroom/func_add_class_member.php");
 
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);

@@ -1,6 +1,6 @@
 <?php 
-	include("../../Level_page.php");
-	lavel_Page_L3();
+	include("../../../Level_page.php");
+	lavel_Page_L4();
 	include_once($level."connection/Connection.php");
 	include($level."include/main.php");
 	date_default_timezone_set('Asia/Bangkok');
@@ -14,10 +14,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title><?=$domain_sub;?></title>
 	
-	<link href="../../bootstrap/css/bootstrap.css" rel="stylesheet">
-	<link href="../../css/style-main.css" rel="stylesheet">
-	<link href="../../css/navbar.css" rel="stylesheet">
-	<link href="../../css/product-list.css" rel="stylesheet">
+	<link href="../../../bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="../../../css/style-main.css" rel="stylesheet">
+	<link href="../../../css/navbar.css" rel="stylesheet">
+	<link href="../../../css/product-list.css" rel="stylesheet">
 	<link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
 	
 	<style>
@@ -56,14 +56,12 @@
 </head>
 <body class="font bg_color-W2">
 
-	<?php
-		include($level."teacher/navbar_teacher.php"); 
-	?>
+	<?php include $level."student/navbar_teacher.php";?>
 	
 	<div class="container-fluid">
 		<div class="row">
 		
-			<?php include($level."menu/menu.php");?> <!-- include menu.php -->
+			<?php include($level."menu/ta_menu.php");?> <!-- include menu.php -->
 			
 			<div class="col-md-9 bg_color-W3 pb-4" style="min-height: 100vh">
 				<div class="container">
