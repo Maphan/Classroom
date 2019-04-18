@@ -24,7 +24,19 @@ function getAll_Classroom_owner($account_id){
 	
 	$stmt=$GLOBALS['sql']->prepare("SELECT * FROM owner_class WHERE t_id = ? AND status=1");
 	$stmt->bindParam(1, $account_id);
-//	$stmt->bindParam(2, 1);
+	$stmt->execute();
+	
+	while($row_myClass=$stmt->fetch()){		
+		$classroom_list[]=getClassroom($row_myClass['class_id']);		
+	}//end ehile
+	return($classroom_list);
+}//end func
+
+function getAll_Classroom_owner_request($account_id){
+	$classroom_list=array();
+	
+	$stmt=$GLOBALS['sql']->prepare("SELECT * FROM owner_class WHERE t_id = ? AND status=0");
+	$stmt->bindParam(1, $account_id);
 	$stmt->execute();
 	
 	while($row_myClass=$stmt->fetch()){		
