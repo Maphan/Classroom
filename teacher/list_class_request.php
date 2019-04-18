@@ -118,7 +118,7 @@
 											<a href="update_class_owner_status/server_update_class_owner_status.php?class_id=<?=$classroom_temp->class_id;?>&t_id=<?=getAccount()->id?>" class="link_main1 mr-2 btn col-sm-12 btn-main2" onclick="return confirm('Are you sure?')"><i class="icon ion-checkmark-circled"></i> Accept</a>
 										</div>
 										<div class="col-1 px-0">
-											<a href="delete_classroom/server_delete_classroom.php?class_id=<?=$classroom_temp->class_id;?>" class="link_main1" onclick="return confirm('Are you sure?')"><i class="icon ion-trash-b"></i></a>
+											<a href="delete_class_owner/server_delete_class_owner.php?class_id=<?=$classroom_temp->class_id;?>&t_id=<?=getAccount()->id?>" class="link_main1" onclick="return confirm('Are you sure?')"><i class="icon ion-trash-b"></i></a>
 										</div>
 									</div>
 								</div>
