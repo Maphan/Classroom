@@ -80,10 +80,10 @@
 						<div class="col-md-6">
                             <form id="form_editClass" action="server_edit_class.php" method="post" enctype="multipart/form-data">
 								<div class="col-md-12 pb-4">
-                                <input type="text" id="class_name" name="subject_name" class="form-control" pattern="[a-zA-Z0-9\s]*" value="<?=getClassroom($_GET['class_id'])->subject_name ?>">
+                                	<input type="text" id="class_name" name="subject_name" class="form-control" pattern="[a-zA-Z0-9\s]*" value="<?=getClassroom($_GET['class_id'])->subject_name ?>" placeholder="Class Name">
 								</div>
 								<div class="col-md-12 pb-4">
-									<input type="text" id="subject_code" name="subject_code" class="form-control" value="<?=getClassroom($_GET['class_id'])->subject_code ?>" readonly>
+									<input type="text" id="subject_code" name="subject_code" class="form-control" value="<?=getClassroom($_GET['class_id'])->subject_code ?>"  pattern="[a-zA-Z0-9\s]*" placeholder="Subject code">
 								</div>
 								<div class="row col-md-12 ">
 									<div class="col-md-6 pb-4">

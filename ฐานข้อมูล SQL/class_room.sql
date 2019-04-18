@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 01, 2019 at 09:05 PM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.3
+-- Generation Time: Apr 18, 2019 at 02:29 PM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.1.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -38,13 +38,6 @@ CREATE TABLE `classroom` (
   `des` text COLLATE utf8_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Dumping data for table `classroom`
---
-
-INSERT INTO `classroom` (`class_id`, `subject_code`, `subject_name`, `year`, `term`, `section`, `des`) VALUES
-('2601c3cd98', '322326', 'softend', 2018, 2, 3, 'sentwork');
-
 -- --------------------------------------------------------
 
 --
@@ -59,37 +52,6 @@ CREATE TABLE `class_member` (
   `status` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Dumping data for table `class_member`
---
-
-INSERT INTO `class_member` (`i`, `class_id`, `std_id`, `join_time`, `status`) VALUES
-(1, '2601c3cd98', '5830203301', '2019-04-01 19:04:32', 1),
-(2, '2601c3cd98', '5830203709', '2019-04-01 19:02:29', 0),
-(3, '2601c3cd98', '5930200524', '2019-04-01 19:02:29', 0),
-(4, '2601c3cd98', '5930204031', '2019-04-01 19:02:29', 0),
-(5, '2601c3cd98', '5930204049', '2019-04-01 19:02:29', 0),
-(6, '2601c3cd98', '5930204099', '2019-04-01 19:02:29', 0),
-(7, '2601c3cd98', '5930204120', '2019-04-01 19:02:29', 0),
-(8, '2601c3cd98', '5930204188', '2019-04-01 19:02:29', 0),
-(9, '2601c3cd98', '5930204196', '2019-04-01 19:02:29', 0),
-(10, '2601c3cd98', '5930204235', '2019-04-01 19:02:29', 0),
-(11, '2601c3cd98', '5930204251', '2019-04-01 19:02:29', 0),
-(12, '2601c3cd98', '5930204324', '2019-04-01 19:02:29', 0),
-(13, '2601c3cd98', '5930204374', '2019-04-01 19:02:29', 0),
-(14, '2601c3cd98', '5930204405', '2019-04-01 19:02:29', 0),
-(15, '2601c3cd98', '5930204413', '2019-04-01 19:02:29', 0),
-(16, '2601c3cd98', '5930204439', '2019-04-01 19:02:29', 0),
-(17, '2601c3cd98', '5930204528', '2019-04-01 19:02:29', 0),
-(18, '2601c3cd98', '5930204552', '2019-04-01 19:02:30', 0),
-(19, '2601c3cd98', '5930204594', '2019-04-01 19:02:30', 0),
-(20, '2601c3cd98', '5930204625', '2019-04-01 19:02:30', 0),
-(21, '2601c3cd98', '5930204633', '2019-04-01 19:02:30', 0),
-(22, '2601c3cd98', '5930204667', '2019-04-01 19:02:30', 0),
-(23, '2601c3cd98', '5930204675', '2019-04-01 19:02:30', 0),
-(24, '2601c3cd98', '5930204683', '2019-04-01 19:02:30', 0),
-(25, '2601c3cd98', '5930204706', '2019-04-01 19:02:30', 0);
-
 -- --------------------------------------------------------
 
 --
@@ -99,15 +61,9 @@ INSERT INTO `class_member` (`i`, `class_id`, `std_id`, `join_time`, `status`) VA
 CREATE TABLE `owner_class` (
   `i` int(11) NOT NULL,
   `class_id` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `t_id` int(10) NOT NULL
+  `t_id` int(10) NOT NULL,
+  `status` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `owner_class`
---
-
-INSERT INTO `owner_class` (`i`, `class_id`, `t_id`) VALUES
-(1, '2601c3cd98', 2);
 
 -- --------------------------------------------------------
 
@@ -130,7 +86,7 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`std_id`, `email`, `password`, `first_name`, `last_name`, `permission`, `login_status`) VALUES
-('5830203301', 'A01@kkumail.com', '123123123', 'ณัฎฐพงค์ ', 'รัตนศิริพรหม', 0, 0),
+('5830203301', 'A01@kkumail.com', '123123123', 'ณัฎฐพงค์ ', 'รัตนศิริพรหม', 1, 0),
 ('5830203709', 'A02@kkumail.com', '123123123', 'อภิวัฒน์ ', 'เมฆวัน', 0, 0),
 ('5930200524', 'A03@kkumail.com', '123123123', 'ปภาวิชญ', 'พาศรี', 0, 0),
 ('5930204031', 'A04@kkumail.com', '123123123', 'กนกสุดา ', 'ดีแล้ว', 0, 0),
@@ -177,8 +133,8 @@ CREATE TABLE `teacher` (
 --
 
 INSERT INTO `teacher` (`t_id`, `email`, `password`, `first_name`, `last_name`, `login_status`) VALUES
-(1, 'theerayut@kku.ac.th ', '123123123', 'ผศ.ดร.ธีระยุทธ ', 'ทองเครือ ', 3),
-(2, 'chitsutha@kku.ac.th ', '123123123', 'อ.ดร.ชิตสุธา', 'สุ่มเล็ก', 3);
+(1, 'theerayut@kku.ac.th ', '123123123', 'ผศ.ดร.ธีระยุทธ ', 'ทองเครือ ', 0),
+(2, 'chitsutha@kku.ac.th ', '123123123', 'อ.ดร.ชิตสุธา', 'สุ่มเล็ก', 0);
 
 -- --------------------------------------------------------
 
@@ -243,13 +199,13 @@ ALTER TABLE `teacher_assistant`
 -- AUTO_INCREMENT for table `class_member`
 --
 ALTER TABLE `class_member`
-  MODIFY `i` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `i` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `owner_class`
 --
 ALTER TABLE `owner_class`
-  MODIFY `i` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `i` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `teacher`

@@ -2,7 +2,7 @@
 session_start();
 include("../../connection/Connection.php");
 include("../../classroom/func_add_classroom.php");
-include("../../classroom/func_add_classroom_owner.php");
+include("../../classroom/func_add_class_owner.php");
 include("../../accout/getAccount.php");
 	
 if(isset($_POST['class_name']) && isset($_POST['subject_code']) && isset($_POST['year']) && isset($_POST['term']) && isset($_POST['des']) && isset($_POST['section'])){
@@ -12,7 +12,7 @@ if(isset($_POST['class_name']) && isset($_POST['subject_code']) && isset($_POST[
 		// inser classroom
 		if(add_classroom($class_id, $_POST['subject_code'], $_POST['class_name'], $_POST['year'], $_POST['term'], $_POST['des'], $_POST['section'])){
 			//insert class owner
-			if(add_classroom_owner($class_id,$id_owner)){
+			if(add_class_owner($class_id,$id_owner)){
 				header("Location: ../success.php");
 			}else{
 				header("Location: create_class.php?flag=add class owner is fail! #0");
