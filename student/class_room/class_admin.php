@@ -90,7 +90,7 @@
                             
 
                         ?>
-                        <div class="col-12 text-center pb-5 py-2 mt-0 text-size-18 "><b>รายชื่ออาจารย์</b></div>
+                        <div class="col-12 text-center bg-dark pb-2 py-2 mt-0 text-size-18 text_color-W1 "><b>รายชื่ออาจารย์</b></div>
                         <table class="table table-striped">
                             <thead>
                                 <tr class="">
@@ -118,7 +118,7 @@
                     </div>
                         <hr>
                     <div class="row pt-3 pb-3">
-                        <div class="col-12 text-center pb-5 py-2 mt-0 text-size-18"><b>รายชื่อผู้ช่วยสอน</b></div>
+                        <div class="col-12 text-center bg-dark pb-2 py-2 mt-0 text-size-18 text_color-W1 "><b>รายชื่อผู้ช่วยสอน</b></div>
                         <table class="table table-striped">
                             <thead>
                                 <tr class="">
