@@ -196,7 +196,7 @@
 		if(r==true){
 			$.ajax({
 				type: "POST",
-				url: "../teacher/drop_student/server_set_enroll_class_status.php",
+				url: "drop_student/server_set_enroll_class_status.php",
 				data: {std_id:std_id_p,class_id:class_id_p,status:status_p},
 				success: function(res){
 					if(res=="1"){
@@ -215,7 +215,7 @@
 		if(r==true){
 			$.ajax({
 				type: "POST",
-				url: "../teacher/delete_student/server_delete_student.php",
+				url: "delete_student/server_delete_student.php",
 				data: {std_id:std_id_p,class_id:class_id_p},
 				success: function(res){
 					if(res=="true"){

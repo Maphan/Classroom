@@ -1,10 +1,10 @@
 <?php
 session_start();
-include("../../connection/Connection.php");
-include("../../classroom/func_set_enroll_class_status.php");
+include("../../../connection/Connection.php");
+include("../../../classroom/func_set_enroll_class_status.php");
 
 if(isset($_POST['class_id']) && isset($_POST['std_id']) && isset($_POST['status'])){
-	if(isset($_SESSION['permission']) && $_SESSION['permission']=="3"){
+	if(isset($_SESSION['permission']) && $_SESSION['permission']=="1"){
 		$class_id = $_POST['class_id'];
         $std_id = $_POST['std_id'];
         $status=$_POST['status'];
