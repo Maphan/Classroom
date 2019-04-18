@@ -68,15 +68,35 @@
 		
 			<?php include($level."menu/student_menu.php");?> <!-- include menu.php -->
 			
-			<table class="table table-striped">
+			<div class="col-md-9 bg_color-W3 pb-4" style="min-height: 100vh">
+				<div class="row">
+					<div class="col-3" ></div>
+					<div class="col-6 bg-dark text_color-main1 text-center py-2 mt-0" style="border-radius: 0px 0px 7px 7px">
+						<h5><i class="ion-ionic"></i> <?=getClassroom($_GET['class_id'])->subject_name ?></h5>
+					</div>
+					<div class="col-3"></div>
+				</div>
+				<div class="container">
+
+                
+                    
+                    
+					<div class="row pt-5 pb-3">
+                    <?php 
+									$class_id=$_GET['class_id'];
+									$stmt_student_count=$sql->prepare("SELECT * FROM class_member WHERE class_id=?");
+									$stmt_student_count->bindParam(1, $class_id);
+									$stmt_student_count->execute();
+
+									?>
+					<table class="table table-striped">
 						<thead>
 							<tr class="">
 							<th scope="col">รหัสนักศึกษา</th>
 							<th scope="col">ชื่อ</th>
-							<th scope="col">นามสกุล</th>
-							<th scope="col">มาเรียน (ครั้ง)</th>
+							<th scope="col">นามสกุล</th>	
 							<th scope="col">สถานะ</th>
-							<th scope="col">Action</th>
+
 							</tr>
 						</thead>
 						
@@ -88,7 +108,7 @@
 							<td><?php echo $std->id;?></td>
 							<td><?php echo $std->firstname;?></td>
 							<td><?php echo $std->lastname;?></td>
-							<td>#</td>
+							
 							<td> 
 							<?php 
 							$status=getAll_Classroom_status($std->id,$class_id);
@@ -99,19 +119,7 @@
 							<?php } ?>  
 							
 							</td>
-							<td>
-							<!-- Example single danger button -->
-							<div class="btn-group">
-							<button type="button" class="btn btn-danger dropdown-toggle btn_link_cursor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Action
-							</button>
-							<div class="dropdown-menu">
-								<a class="dropdown-item btn_link_cursor" onclick="dropMember('<?php echo $std->id;?>','<?php echo $class_id ?>','1')" >ดรอป</a>
-								<a class="dropdown-item btn_link_cursor" onclick="dropMember('<?php echo $std->id;?>','<?php echo $class_id ?>','2')" >ถอน</a>
-								<a class="dropdown-item btn_link_cursor" onclick="deleteMember('<?php echo $std->id;?>','<?php echo $class_id ?>')" >ลบ</a>
-							</div>
-							</div>
-							</td>
+							
 							</tr>
 							<?php } ?>
 						</tbody>
@@ -120,6 +128,7 @@
 			</div>
 		</div>
 	</div>
+
 	<div id="snackbar">
 	</div>
 	<script src="<?=$level;?>bootstrap/jquery-3.2.1.slim.min.js"></script>
