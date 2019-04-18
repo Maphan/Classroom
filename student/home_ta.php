@@ -83,7 +83,7 @@
 					<hr>
 					<div class="row pt-3 pb-3">
 						<?php 
-						if(sizeof(getAll_Classroom_student(getAccount()->id))==0){?>
+						if(sizeof(getAll_Classroom_ta(getAccount()->id))==0){?>
 						<div class="alert alert-danger text-center col-12 text-size-20" role="alert">
 							<i class="ion ion-sad text-size-50"></i><br> No Classroom ! ! !<br><br>
 						</div>
