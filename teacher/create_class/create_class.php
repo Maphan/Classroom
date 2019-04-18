@@ -75,7 +75,7 @@
 				<div class="row">
 					<div class="col-3" ></div>
 					<div class="col-6 bg-dark text_color-main1 text-center py-2 mt-0" style="border-radius: 0px 0px 7px 7px">
-						<h5><i class="ion-ionic"></i> My Classroom</h5>
+						<h5><i class="ion-ionic"></i> Create Classroom</h5>
 					</div>
 					<div class="col-3"></div>
 				</div>
