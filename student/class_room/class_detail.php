@@ -1,0 +1,131 @@
+<?php 
+	include("../../Level_page.php");
+	lavel_Page_L3();
+	include_once($level."connection/Connection.php");
+	include($level."include/main.php");
+	date_default_timezone_set('Asia/Bangkok');
+	session_start();
+	include_once($level."classroom/func_getMyClassroom.php");
+?>
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title><?=$domain_sub;?></title>
+	
+	<link href="../../bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="../../css/style-main.css" rel="stylesheet">
+	<link href="../../css/navbar.css" rel="stylesheet">
+	<link href="../../css/product-list.css" rel="stylesheet">
+	<link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+	
+	<style>
+		html,body{
+			width: 100%;
+			height: 100%;
+			padding: 0;
+			margin: 0;
+		  }
+		.carousel-item img{
+			min-width: 100%;
+		}
+		#form_addTA input{
+			height: 35px;
+			margin-bottom: 20px;
+			font-size: 15px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		#form_addTA textarea{
+			margin-bottom: 10px;
+			font-size: 15px;
+			border: 0px;
+		}		
+		.box_dash{
+			width: 250px;
+			height: 250px;
+			border: solid 15px;
+			padding-top: 20%;
+			transition: 0.2s;
+		}
+		.box_dash:hover{
+			border: solid 2px;
+		}
+	</style>	
+</head>
+<body class="font bg_color-W2">
+
+	<?php
+		include($level."student/navbar_teacher.php"); 
+	?>
+	
+	<div class="container-fluid">
+		<div class="row">
+		
+			<?php include($level."menu/student_menu.php");?> <!-- include menu.php -->
+			
+			<div class="col-md-9 bg_color-W3 pb-4" style="min-height: 100vh">
+				<div class="row">
+					<div class="col-3" ></div>
+					<div class="col-6 bg-dark text_color-main1 text-center py-2 mt-0" style="border-radius: 0px 0px 7px 7px">
+						<h5><i class="ion-ionic"></i> <?=getClassroom($_GET['class_id'])->subject_name ?></h5>
+					</div>
+					<div class="col-3"></div>
+				</div>
+				<div class="container">
+					<hr>
+					<div class="row pt-5 pb-3 text-center">
+					
+                        
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label for="class_name" class=" col-form-label pr-2">ชื่อวิชา &nbsp;&nbsp;&nbsp;&nbsp;: </label>
+                                    <div class="">
+                                    <input type="text" id="class_name" name="subject_name" class="form-control" pattern="[a-zA-Z0-9\s]*" value="<?=getClassroom($_GET['class_id'])->subject_name ?>" placeholder="Class Name" disabled>
+                                    </div>  
+                            </div>
+                            <div class="form-group row">
+                                <label for="subject_code" class=" col-form-label pr-2">รหัสวิชา &nbsp;&nbsp;&nbsp;: </label>
+                                    <div class="">
+                                    <input type="text" id="subject_code" name="subject_code" class="form-control" pattern="[a-zA-Z0-9\s]*" value="<?=getClassroom($_GET['class_id'])->subject_code ?>" placeholder="Subject code" disabled>
+                                    </div>  
+                            </div>
+                            <div class="form-group row">
+                                <label for="year" class=" col-form-label pr-2">ปีการศึกษา : </label>
+                                    <div class="">
+                                    <input type="text" id="year" name="year" class="form-control" pattern="[a-zA-Z0-9\s]*" value="<?=getClassroom($_GET['class_id'])->year ?>" placeholder="YEAR" disabled>
+                                    </div>  
+                            </div>
+                            <div class="form-group row">
+                                <label for="term" class=" col-form-label pr-2">เทอม &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </label>
+                                    <div class="">
+                                    <input type="text" id="term" name="term" class="form-control" pattern="[a-zA-Z0-9\s]*" value="<?=getClassroom($_GET['class_id'])->term ?>" placeholder="term" disabled>
+                                    </div>  
+                            </div>
+                            <div class="form-group row">
+                                <label for="des" class=" col-form-label pr-2">รายละเอียดวิชา : </label>
+									<textarea id="des" name="des" class="form-control" rows="5" cols="100" disabled><?=getClassroom($_GET['class_id'])->des; ?></textarea>                                    
+                            </div>                      
+                        </div>
+                        <div class="col-md-3"></div>
+                           
+					</div>
+                     
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script src="<?=$level;?>bootstrap/jquery-3.2.1.slim.min.js"></script>
+	<script src="<?=$level;?>bootstrap/popper.min.js"></script>	
+	<script src="<?=$level;?>bootstrap/js/bootstrap.min.js"></script>
+	<script src="<?=$level;?>js/jquery.min.js"></script>
+	
+	<script>var level='<?php echo $level?>';</script>
+	<script src="<?=$level?>js/count_cart.js"></script>
+	<script src="<?=$level?>js/delete_cart.js"></script>
+	
+</body>
+</html>
