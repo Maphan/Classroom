@@ -1,7 +1,7 @@
 <?php
 session_start();
 include("../../connection/Connection.php");
-include("../../classroom/func_delete_classroom.php");
+include("../../classroom/func_delete_class_owner.php");
 
 if(isset($_GET['class_id']) && isset($_GET['t_id']) ){
 	if(isset($_SESSION['permission']) && $_SESSION['permission']=="3"){
