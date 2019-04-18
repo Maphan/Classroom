@@ -75,17 +75,22 @@
 				<div class="row">
 					<div class="col-3" ></div>
 					<div class="col-6 bg-dark text_color-main1 text-center py-2 mt-0" style="border-radius: 0px 0px 7px 7px">
-						<h5><i class="ion-ionic"></i> ผู้ช่วยสอน</h5>
+						<h5><i class="ion-ionic"></i> Teacher Assistant</h5>
 					</div>
 					<div class="col-3"></div>
 				</div>
 				<div class="container">
 					<hr>
 					<div class="row pt-3 pb-3">
-						<?php foreach (getAll_Classroom_ta(getAccount()->id) as $classroom_temp) {?>
+						<?php 
+						if(sizeof(getAll_Classroom_student(getAccount()->id))==0){?>
+						<div class="alert alert-danger text-center col-12 text-size-20" role="alert">
+							<i class="ion ion-sad text-size-50"></i><br> No Classroom ! ! !<br><br>
+						</div>
+						<?php }else{foreach (getAll_Classroom_ta(getAccount()->id) as $classroom_temp) {?>
 						<!-- Card  -->
 						<div class="col-lg-4">
-							<a href="ClassRoom.php?class_id=<?=$classroom_temp->class_id;?>">
+							<a href="teacher_assistant/ClassRoom.php?class_id=<?=$classroom_temp->class_id;?>">
 							<div class="card bg-secondary mb-3 btn_link_cursor" >
 								<div class="card-header ">
 									<h5 class="text-white"><b>#<?=$classroom_temp->subject_code;?></b></h5>
@@ -98,13 +103,15 @@
 									<span class="card-text">Student  # คน</span>
 									<div class="mt-3 text-right text-size-28">										
 										<a href="ClassRoom.php?class_id=<?=$classroom_temp->class_id;?>" class="link_main1 mr-2"><i class="icon ion-ios-folder"></i></a>
-										<a href="teacher_assistant/delete_classroom/server_delete_classroom.php?class_id=<?=$classroom_temp->class_id;?>" class="link_main1" onclick="return confirm('Are you sure?')"><i class="icon ion-trash-b"></i></a>
 									</div>
 								</div>
 							</div>
 							</a>
 						</div>
-						<?php } ?>
+						<?php 
+							}//endforeach
+						}//end if
+						?>
 						
 					</div>					
 				</div>
