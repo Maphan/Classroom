@@ -66,7 +66,7 @@
 	
 	<div class="container-fluid">
 		<div class="row">
-			<?php include($level."menu/student_menu.php");?> <!-- include menu.php -->		
+			<?php include($level."menu/ta_menu.php");?> <!-- include menu.php -->		
 			<div class="col-md-9 bg_color-W3 pb-4" style="min-height: 100vh">
 				<div class="row">
 					<div class="col-3" ></div>

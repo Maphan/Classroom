@@ -15,5 +15,6 @@
 		<a href="<?=$level;?>student/teacher_assistant/add_student/add_student.php?class_id=<?=$_GET['class_id']?>"><p class="link_main2"><i class="ion-arrow-right-b text_color-main2"></i> เพิ่มนักศึกษา</p></a>
 		<?php } ?>
 		<a href="<?=$level;?>student/teacher_assistant/edit_class/edit_class.php?class_id=<?=$_GET['class_id']?>"><p class="link_main2"><i class="ion-arrow-right-b text_color-main2"></i> แก้ไขรายละเอียด</p></a>
+		<a href="<?=$level;?>student/teacher_assistant/class_admin.php?class_id=<?=$_GET['class_id']?>"><p class="link_main2"><i class="ion-arrow-right-b text_color-main2"></i> ผู้ดูแล</p></a>
 	</div>
 </div>
