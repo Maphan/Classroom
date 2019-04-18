@@ -1,10 +1,10 @@
 <?php
 session_start();
-include("../../connection/Connection.php");
-include("../../classroom/func_edit_class.php");
+include("../../../connection/Connection.php");
+include("../../../classroom/func_edit_class.php");
 
 if(isset($_POST['class_id']) && isset($_POST['subject_name']) && isset($_POST['subject_code']) && isset($_POST['year']) && isset($_POST['term']) && isset($_POST['section'])){
-	if(isset($_SESSION['permission']) && $_SESSION['permission']=="3"){
+	if(isset($_SESSION['permission']) && $_SESSION['permission']=="1"){
 		$class_id = $_POST['class_id'];
         $subject_name = $_POST['subject_name'];
 		$subject_code=$_POST['subject_code'];
