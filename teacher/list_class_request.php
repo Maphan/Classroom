@@ -82,7 +82,12 @@
 				<div class="container">
 					<hr>
 					<div class="row pt-3 pb-3">
-						<?php foreach (getAll_Classroom_owner_request(getAccount()->id) as $classroom_temp) {?>
+						<?php 
+						if(sizeof(getAll_Classroom_owner_request(getAccount()->id))==0){?>
+						<div class="alert alert-danger text-center col-12 text-size-20" role="alert">
+							<i class="ion ion-ios-cloudy-night text-size-50"></i><br> No found request !<br><br>
+						</div>
+						<?php }else{foreach (getAll_Classroom_owner_request(getAccount()->id) as $classroom_temp) {?>
 						<!-- Card  -->
 						<div class="col-lg-4">
 							<a href="ClassRoom.php?class_id=<?=$classroom_temp->class_id;?>">
@@ -120,7 +125,10 @@
 							</div>
 							</a>
 						</div>
-						<?php } ?>
+						<?php 
+							}//endforeach
+						}//end if
+						?>
 						
 					</div>					
 				</div>
