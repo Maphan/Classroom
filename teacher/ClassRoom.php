@@ -155,7 +155,7 @@
 							if($status=="0"){?>
 								<span class="text-success"><b>ลงเรียน</b></span>	
 							<?php }else if($status=="1"){	?>
-								<span class="text-danger"><b>ดรอป</b></span>
+								<span class="text-danger"><b>ถอน</b></span>
 							<?php } ?>  
 							
 							</td>
@@ -166,7 +166,7 @@
 								Action
 							</button>
 							<div class="dropdown-menu">
-								<a class="dropdown-item btn_link_cursor" onclick="dropMember('<?php echo $std->id;?>','<?php echo $class_id ?>','1')" >ดรอป</a>
+								<a class="dropdown-item btn_link_cursor" onclick="dropMember('<?php echo $std->id;?>','<?php echo $class_id ?>','1')" >ถอน</a>
 								<a class="dropdown-item btn_link_cursor" onclick="deleteMember('<?php echo $std->id;?>','<?php echo $class_id ?>')" >ลบ</a>
 							</div>
 							</div>
