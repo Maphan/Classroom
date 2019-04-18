@@ -75,20 +75,14 @@
 				<div class="row">
 					<div class="col-3" ></div>
 					<div class="col-6 bg-dark text_color-main1 text-center py-2 mt-0" style="border-radius: 0px 0px 7px 7px">
-						<h5><i class="ion-ionic"></i> My Classroom</h5>
+						<h5><i class="ion-ionic"></i> Classroom Request</h5>
 					</div>
 					<div class="col-3"></div>
 				</div>
 				<div class="container">
 					<hr>
 					<div class="row pt-3 pb-3">
-						<?php 
-						if(sizeof(getAll_Classroom_owner(getAccount()->id))==0){?>
-						<div class="alert alert-danger text-center col-12 text-size-20" role="alert">
-							<i class="ion ion-sad text-size-50"></i><br> No Classroom ! ! !<br><br>
-							<a class="btn btn-main1" href="<?=$level?>teacher/create_class/create_class.php"><i class="ion-plus-circled text-size-20"></i> Create Classroom</a>
-						</div>
-						<?php }else{ foreach (getAll_Classroom_owner(getAccount()->id) as $classroom_temp) {?>
+						<?php foreach (getAll_Classroom_owner_request(getAccount()->id) as $classroom_temp) {?>
 						<!-- Card  -->
 						<div class="col-lg-4">
 							<a href="ClassRoom.php?class_id=<?=$classroom_temp->class_id;?>">
@@ -111,18 +105,22 @@
 									<?php $std_count->bindParam(1,$classroom_temp->class_id);?>
 									<?php $std_count->execute(); ?>
 									<span class="card-text" style="color: #252525">Student <?php echo $std_count->rowCount();?> คน</span>
-									<div class="mt-3 text-right text-size-28">										
-										<a href="ClassRoom.php?class_id=<?=$classroom_temp->class_id;?>" class="link_main1 mr-2"><i class="icon ion-ios-folder"></i></a>
-										<a href="delete_classroom/server_delete_classroom.php?class_id=<?=$classroom_temp->class_id;?>" class="link_main1" onclick="return confirm('Are you sure?')"><i class="icon ion-trash-b"></i></a>
+									
+								</div>
+								<div class="card-footer mt-3">
+									<div class=" text-right row text-size-28">
+										<div class="col-10">
+											<a href="update_class_owner_status/server_update_class_owner_status.php?class_id=<?=$classroom_temp->class_id;?>&t_id=<?=getAccount()->id?>" class="link_main1 mr-2 btn col-sm-12 btn-main2" onclick="return confirm('Are you sure?')"><i class="icon ion-checkmark-circled"></i> Accept</a>
+										</div>
+										<div class="col-1 px-0">
+											<a href="delete_classroom/server_delete_classroom.php?class_id=<?=$classroom_temp->class_id;?>" class="link_main1" onclick="return confirm('Are you sure?')"><i class="icon ion-trash-b"></i></a>
+										</div>
 									</div>
 								</div>
 							</div>
 							</a>
 						</div>
-						<?php 
-							}//endforeach
-						}//end if
-						?>
+						<?php } ?>
 						
 					</div>					
 				</div>
