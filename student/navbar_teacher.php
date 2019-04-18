@@ -23,7 +23,7 @@ include_once($level."accout/getAccount.php");
 				<a class="nav-link link_main2" href="<?=$level?>student/home_ta.php">ผู้ช่วยสอน</a>
 			  </li>
 				<li class="nav-item">
-				<a class="nav-link link_main2" href="<?=$level?>student/home_ta.php">สร้างคลาส</a>
+				<a class="nav-link link_main2" href="<?=$level?>student/teacher_assistant/create_class/create_class.php">สร้างคลาส</a>
 			  </li>
 				<?php } ?>
 			  <li class="nav-item">

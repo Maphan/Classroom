@@ -98,7 +98,7 @@
 									<span class="card-text">Student  # คน</span>
 									<div class="mt-3 text-right text-size-28">										
 										<a href="ClassRoom.php?class_id=<?=$classroom_temp->class_id;?>" class="link_main1 mr-2"><i class="icon ion-ios-folder"></i></a>
-										<a href="#" class="link_main1"><i class="icon ion-trash-b"></i></a>
+										<a href="teacher_assistant/delete_classroom/server_delete_classroom.php?class_id=<?=$classroom_temp->class_id;?>" class="link_main1" onclick="return confirm('Are you sure?')"><i class="icon ion-trash-b"></i></a>
 									</div>
 								</div>
 							</div>

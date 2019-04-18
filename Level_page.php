@@ -13,4 +13,8 @@
 		global $level;
 		$level="../../";
 	}
+	function lavel_Page_L4(){
+		global $level;
+		$level="../../../";
+	}
 ?>
