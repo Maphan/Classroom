@@ -12,7 +12,7 @@ if(isset($_POST['class_name']) && isset($_POST['subject_code']) && isset($_POST[
 		// inser classroom
 		if(add_classroom($class_id, $_POST['subject_code'], $_POST['class_name'], $_POST['year'], $_POST['term'], $_POST['des'], $_POST['section'])){
 			//insert class owner
-			if(add_class_owner($class_id,$id_owner)){
+			if(add_class_owner($class_id,$id_owner,1)){
 				header("Location: ../success.php");
 			}else{
 				header("Location: create_class.php?flag=add class owner is fail! #0");

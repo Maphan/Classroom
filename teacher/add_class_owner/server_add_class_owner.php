@@ -15,7 +15,7 @@ if(isset($_POST['class_id']) && isset($_POST['email'])){
 			$row_t= $stmt_t->fetch();
 			$t_id=$row_t['t_id'];
 			
-			if(add_class_owner($class_id,$t_id)){
+			if(add_class_owner($class_id,$t_id,0)){
 				header("Location: success.php?class_id=".$class_id);
 			}else{
 				header("Location: add_class_owner.php?class_id=".$class_id."&flag=Add teacher fail! #1".$std_id);
