@@ -4,6 +4,6 @@
 		<a href="<?=$level;?>student/class_room/ClassRoom.php?class_id=<?=$_GET['class_id']?>"><p class="link_main2"><i class="ion-arrow-right-b text_color-main2"></i> Main Classroom</p></a>
 		<a href="#"><p class="link_main2"><i class="ion-arrow-right-b text_color-main2"></i> รายละเอียดคลาส</p></a>
 		<a href="<?=$level;?>student/class_room/member.php?class_id=<?=$_GET['class_id']?>"><p class="link_main2"><i class="ion-arrow-right-b text_color-main2"></i> รายชื่อ</p></a>
-		<a href="#"><p class="link_main2"><i class="ion-arrow-right-b text_color-main2"></i> ผู้ดูแล</p></a>
+		<a href="<?=$level;?>student/class_room/class_admin.php?class_id=<?=$_GET['class_id']?>"><p class="link_main2"><i class="ion-arrow-right-b text_color-main2"></i> ผู้ดูแล</p></a>
 	</div>
 </div>

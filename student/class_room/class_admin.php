@@ -6,9 +6,10 @@
 	date_default_timezone_set('Asia/Bangkok');
 	session_start();
 	include_once($level."classroom/func_getMyClassroom.php");
-	include_once($level."classroom/func_get_enroll_status.php");
+    include_once($level."classroom/func_get_enroll_status.php");
 	include_once($level."accout/Account_object.php");
-	include_once($level."accout/getStudent.php");
+    include_once($level."accout/getStudent.php");
+    include_once($level."accout/getTeacher.php");
 ?>
 <!doctype html>
 <html>
@@ -77,48 +78,72 @@
 					<div class="col-3"></div>
 				</div>
 				<div class="container">
+                
+
 
                 
                     
                     
 					<div class="row pt-5 pb-3">
                     <?php 
-									$class_id=$_GET['class_id'];
-									$stmt_student_count=$sql->prepare("SELECT * FROM class_member WHERE class_id=?");
-									$stmt_student_count->bindParam(1, $class_id);
-									$stmt_student_count->execute();
+                        $class_id=$_GET['class_id'];							
+                        
+                        $stmt_ta=$sql->prepare("SELECT * FROM teacher_assistant WHERE class_id=?");
+                        $stmt_ta->bindParam(1, $class_id);
+                        $stmt_ta->execute();
 
-									?>
+                        $stmt_teacher=$sql->prepare("SELECT * FROM owner_class WHERE class_id=?");
+                        $stmt_teacher->bindParam(1,$class_id);
+                        $stmt_teacher->execute();
+                        echo $stmt_teacher->rowCount();
+
+					?>
+                    <div class="col-12 text-center pb-3 py-2 mt-0">รายชื่ออาจารย์</div>
+                    <table class="table table-striped">
+						<thead>
+							<tr class="">
+
+							<th scope="col">ชื่อ</th>
+							<th scope="col">นามสกุล</th>	
+							<th scope="col">อีเมลล์</th>
+                            
+
+							</tr>
+						</thead>						
+						<tbody>
+						<?php 
+							while($row=$stmt_teacher->fetch()){
+								$teacher = getTeacher($row['t_id']); ?>
+							<tr>
+                                <td><?php echo $teacher->firstname;?></td>
+                                <td><?php echo $teacher->lastname;?></td>
+                                <td><?php echo $teacher->email;?></td>
+                                
+							</tr>
+							<?php } ?>
+						</tbody>
+						</table>
+
+                    <div class="col-12 text-center pb-3 py-2 mt-0">รายชื่อผู้ช่วยสอน</div>
 					<table class="table table-striped">
 						<thead>
 							<tr class="">
-							<th scope="col">รหัสนักศึกษา</th>
 							<th scope="col">ชื่อ</th>
 							<th scope="col">นามสกุล</th>	
-							<th scope="col">สถานะ</th>
+							<th scope="col">อีเมลล์</th>
 
 							</tr>
 						</thead>
 						
 						<tbody>
 						<?php 
-							while($row=$stmt_student_count->fetch()){
+							while($row=$stmt_ta->fetch()){
 								$std = getStudent($row['std_id']); ?>
 							<tr>
-							<td><?php echo $std->id;?></td>
 							<td><?php echo $std->firstname;?></td>
 							<td><?php echo $std->lastname;?></td>
+							<td><?php echo $std->email;?></td>
 							
-							<td> 
-							<?php 
-							$status=getAll_Classroom_status($std->id,$class_id);
-							if($status=="0"){?>
-								<span class="text-success"><b>ลงเรียน</b></span>	
-							<?php }else if($status=="1"){	?>
-								<span class="text-danger"><b>ดรอป</b></span>
-							<?php } ?>  
-							
-							</td>
 							
 							</tr>
 							<?php } ?>
