@@ -1,6 +1,6 @@
 <?php
 function delete_class_owner($class_id,$t_id){
-	$stmt_delete_class_owner=$GLOBALS['sql']->prepare("DELETE FROM classroom WHERE class_id=?;");
+	$stmt_delete_class_owner=$GLOBALS['sql']->prepare("DELETE FROM owner_class WHERE class_id=? AND t_id=?");
     $stmt_delete_class_owner->bindParam(1, $class_id);
     $stmt_delete_class_owner->bindParam(2, $t_id);
     
