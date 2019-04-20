@@ -96,8 +96,8 @@
 									</div>
 								</div>
 								<div class="col-md-12 pb-4">
-										<input type="number" id="section" name="section" class="form-control" value="<?=getClassroom($_GET['class_id'])->section ?>">
-                                        <input type="hidden" name="class_id" id="class_id" value="<?=$_GET['class_id']?>" >
+										<input type="number" id="section" name="section" class="form-control" value="<?=getClassroom($_GET['class_id'])->section ?>" required>
+                                        <input type="hidden" name="class_id" id="class_id" value="<?=$_GET['class_id']?>">
 								</div>
 								<div class="col-md-12 pb-4">
 									<textarea id="des" name="des" class="form-control" rows="5" cols="100"><?=getClassroom($_GET['class_id'])->des; ?></textarea>
