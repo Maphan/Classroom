@@ -79,18 +79,20 @@
 						<div class="col-md-3"></div>
 						<div class="col-md-6">
                             <form id="form_editClass" action="server_edit_class.php" method="post" enctype="multipart/form-data">
-								<div class="col-md-12 pb-4">
-                                	<input type="text" id="class_name" name="subject_name" class="form-control" pattern="[a-zA-Z0-9\s]*" value="<?=getClassroom($_GET['class_id'])->subject_name ?>" placeholder="Class Name">
+								<div class="col-md-12 pb-2">
+                                	<input type="text" id="class_name" name="subject_name" class="form-control mb-1" pattern="[a-zA-Z0-9\s]*" value="<?=getClassroom($_GET['class_id'])->subject_name ?>" placeholder="Class Name" required>
+                                	<p class="text-size-14 text-left pl-3 text-danger">สามารถได้เฉพาะกรอก ตัวอักษร A-Z , a-z และ ตัวเลข 0-9</p>
 								</div>
-								<div class="col-md-12 pb-4">
-									<input type="text" id="subject_code" name="subject_code" class="form-control" value="<?=getClassroom($_GET['class_id'])->subject_code ?>"  pattern="[a-zA-Z0-9\s]*" placeholder="Subject code">
+								<div class="col-md-12 pb-2">
+									<input type="text" id="subject_code" name="subject_code" class="form-control mb-1" value="<?=getClassroom($_GET['class_id'])->subject_code ?>"  pattern="[a-zA-Z0-9\s]*" placeholder="Subject code" required>
+									<p class="text-size-14 text-left pl-3 text-danger">สามารถได้เฉพาะกรอก ตัวอักษร A-Z , a-z และ ตัวเลข 0-9</p>
 								</div>
 								<div class="row col-md-12 ">
 									<div class="col-md-6 pb-4">
 										<input type="number" id="year" name="year" class="form-control" value="<?=getClassroom($_GET['class_id'])->year ?>" min="2018" required>
 									</div>
 									<div class="col-md-6 pb-4">
-										<input type="number" id="term" name="term" class="form-control" value="<?=getClassroom($_GET['class_id'])->term ?>" required>
+										<input type="number" id="term" name="term" class="form-control" value="<?=getClassroom($_GET['class_id'])->term ?>" min="1" max="3" required>
 									</div>
 								</div>
 								<div class="col-md-12 pb-4">
