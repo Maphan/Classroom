@@ -115,7 +115,7 @@
 									<span class="card-text" style="color: #252525">Student <?php echo $std_count->rowCount();?> คน</span>
 									<div class="mt-3 text-right text-size-28">										
 										<a href="class_room/ClassRoom.php?class_id=<?=$classroom_temp->class_id;?>" class="link_main1 mr-2"><i class="icon ion-ios-folder"></i></a>
-										<a href="#" class="link_main1"><i class="icon ion-trash-b"></i></a>
+										<!-- <a href="#" class="link_main1"><i class="icon ion-trash-b"></i></a> -->
 									</div>
 								</div>
 							</div>

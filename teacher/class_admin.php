@@ -122,10 +122,10 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr class="">
-                                <th scope="col">ชื่อ</th>
-                                <th scope="col">นามสกุล</th>	
-                                <th scope="col">อีเมลล์</th>
-
+									<th scope="col">ชื่อ</th>
+									<th scope="col">นามสกุล</th>	
+									<th scope="col">อีเมลล์</th>
+									<th scope="col"></th>
                                 </tr>
                             </thead>
                             
@@ -134,11 +134,10 @@
                                 while($row=$stmt_ta->fetch()){
                                     $std = getStudent($row['std_id']); ?>
                                 <tr>
-                                <td><?php echo $std->firstname;?></td>
-                                <td><?php echo $std->lastname;?></td>
-                                <td><?php echo $std->email;?></td>
-                                
-                                
+									<td><?php echo $std->firstname;?></td>
+									<td><?php echo $std->lastname;?></td>
+									<td><?php echo $std->email;?></td>
+                                	<td><a href="delete_TA/server_delete_TA.php?class_id=<?=$_GET['class_id']?>&std_id=<?=$std->id;?>" class="text-size-20"><i class="ion-android-cancel text-danger"></i></a></td>
                                 </tr>
                                 <?php } ?>
                             </tbody>
