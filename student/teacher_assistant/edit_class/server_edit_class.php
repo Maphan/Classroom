@@ -13,7 +13,7 @@ if(isset($_POST['class_id']) && isset($_POST['subject_name']) && isset($_POST['s
         $section=$_POST['section'];
         $des=$_POST['des'];
         if(edit_class($class_id,$subject_name,$subject_code,$year,$term,$section,$des)){
-            header("Location: ../success.php?class_id=".$class_id);
+            header("Location: ../add_TA/success.php?class_id=".$class_id);
         }
 	}else{
 		echo "3";
