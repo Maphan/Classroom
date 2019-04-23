@@ -73,7 +73,7 @@ if(isset($_SESSION['Username']) && $_SESSION['permission']!=NULL){
 		<div class="container text-center px-5">
 			<form id="form_login" action="server-login.php" method="post" enctype="multipart/form-data">
 				<div class="col-md-12">
-					<input type="text" id="username" name="username" class="form-control" placeholder="อีเมล | student id">
+					<input type="text" id="username" name="username" class="form-control" placeholder="อีเมล">
 				</div>
 				<div class="col-md-12 text-right mb-2">
 					<div class="form-check form-check-inline ">
