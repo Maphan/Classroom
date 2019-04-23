@@ -86,7 +86,7 @@
 									<input type="text" id="email" name="email" class="form-control" placeholder="Email" required>
 								</div>
 								<div class="col-sm-12">
-									<p id="flag" style="color: #FDABAC;"><?php if(isset($_GET['flag'])){echo $_GET['flag'];} ?></p>
+									<p id="flag" style="color: #D30003;"><?php if(isset($_GET['flag'])){echo $_GET['flag'];} ?></p>
 								</div>
 								<div class="col-md-12">
 									<button name="addTA_submit" class="btn btn-main1" type="submit"><i class="ion-plus"></i> Add Teacher Assistant </button>

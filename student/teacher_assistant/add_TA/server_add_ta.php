@@ -12,28 +12,31 @@ if(isset($_POST['class_id']) && isset($_POST['email'])){
 		$stmt_std=$sql->prepare("SELECT * FROM student WHERE email=?");
 		$stmt_std->bindParam(1, $email_std);
 		$stmt_std->execute();
-		if($stmt_std->rowCount()>0){
+		if($stmt_std->rowCount()>0){ // พบ e-mail นี้ในระบบหรือไม่
 			$row_std= $stmt_std->fetch();
 			$std_id=$row_std['std_id'];
 			
-			$stmt_ta=$sql->prepare("SELECT * FROM teacher_assistant WHERE std_id = ? AND class_id = ?");
-			$stmt_ta->bindParam(1, $std_id);
-			$stmt_ta->bindParam(2,$class_id);
-			$stmt_ta->execute();
+			if($row_std['permission']==1){ //มีสิธ์ เป็น TA หรือไม่ ถ้าใช่แล้ว
+				$stmt_ta=$sql->prepare("SELECT * FROM teacher_assistant WHERE std_id = ? AND class_id = ?");
+				$stmt_ta->bindParam(1, $std_id);
+				$stmt_ta->bindParam(2,$class_id);
+				$stmt_ta->execute();
 
-			if ($stmt_ta->rowCount()==0){
-				
-				if($row_std['permission']==0){//if not TA
-					update_permission($email_std,1);//set permission as TA
-				}
-				
-				if(add_TA($std_id,$class_id)){
-					header("Location: success.php?class_id=".$class_id);
+				if ($stmt_ta->rowCount()==0){ // เป็น TA ใน class นี้แล้วหรือยัง			
+	//				if($row_std['permission']==0){//if not TA
+	//					update_permission($email_std,1);//set permission as TA
+	//				}
+
+					if(add_TA($std_id,$class_id)){
+						header("Location: success.php?class_id=".$class_id);
+					}else{
+						header("Location: add_teacher_assistant.php?class_id=".$class_id."&flag=Email not found! #1");
+					}
 				}else{
-					header("Location: add_teacher_assistant.php?class_id=".$class_id."&flag=Email not found! #1");
+					header("Location: add_teacher_assistant.php?class_id=".$class_id."&flag=Student is TA already!");
 				}
 			}else{
-				header("Location: add_teacher_assistant.php?class_id=".$class_id."&flag=Student is TA already!");
+				header("Location: add_teacher_assistant.php?class_id=".$class_id."&flag=Student is not TA. Please contact teacher or admin");
 			}
 		}else{
 			header("Location: add_teacher_assistant.php?class_id=".$class_id."&flag=Email not found!");
